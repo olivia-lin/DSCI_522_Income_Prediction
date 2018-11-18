@@ -32,8 +32,8 @@ Our research proposal for this project is to determine, *what are the strongest 
   
 ## Directory  Structure  
 
-> project_root/
-├── data/
+project_root/  
+├── data/  
 │   ├── adult_data.txt
 ├── doc/
 │   ├── report.Rmd
