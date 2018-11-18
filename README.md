@@ -32,21 +32,4 @@ Our research proposal for this project is to determine, *what are the strongest 
   
 ## Directory  Structure  
 
->project_root/  
-├── data/  
-│   ├── adult_data.txt  
-├── doc/  
-│   ├── report.Rmd  
-├── graphs/  
-│   ├── adult_data.txt  
-├── reports/  
-│   ├── final_report.txt  
-├── graphs/  
-│   ├── graphs.jpg  
-├── sripts/  
-│   ├── loading_data.R  
-├── src/  
-│   ├── tree.py  
-├── tests/  
-│   ├── unit_tests.py  
-├── README.md  
+![alt text][dir.png]
