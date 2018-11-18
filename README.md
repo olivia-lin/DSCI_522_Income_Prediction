@@ -14,7 +14,7 @@ The public data set for our project is https://archive.ics.uci.edu/ml/datasets/A
 Script to load the dataset: [R script](https://github.com/UBC-MDS/DSCI_552_Income_Prediction/tree/master/scripts)
 
 ## Research Question
-Our research proposal for this project is to determine what are the strongest attributes to determine a salary greater than $50,000. This will be a predictive question.
+Our research proposal for this project is to determine, *what are the strongest attributes to determine a salary greater than $50,000?* This will be a predictive question.
 
 ## Plan
 - load the dataset into R 
