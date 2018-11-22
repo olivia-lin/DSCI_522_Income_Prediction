@@ -27,5 +27,9 @@ Our research proposal for this project is to determine, *what are the strongest 
 
 ## Summary
 - compare the testing statistics to the training statistics (ex. accuracy) in a table or visualization such as a tree
-- return to the decision trees to determine the strongest attributes leading to a salary greater than $50,000.
+- return to the decision trees to determine the strongest attributes leading to a salary greater than $50,000.  
+  
+  
+## Directory  Structure  
 
+![alt text][dir.png]
