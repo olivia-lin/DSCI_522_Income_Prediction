@@ -6,7 +6,9 @@
 # This script takes in the original data set and returns a cleaned data set for our project.
 # This script takes no arguments.
 #
-# Usage: Rscript script01_tidy_data.R
+# Usage: Rscript script_01_load_tidy_data.R
+# ex. RScript src/script_01_load_tidy_data.R https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data data/tidy_data.csv
+         
 
 
 # import libraries/packages
@@ -53,3 +55,6 @@ write_csv(income_data_cleaned, output_file)
 
 
  
+
+
+
