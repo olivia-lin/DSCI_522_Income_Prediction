@@ -47,7 +47,7 @@ for i in range(1, 21):
     model = tree.DecisionTreeClassifier(max_depth = i, random_state = 222)
     score = cross_val_score(model, X_train, y_train, cv = 5).mean()
     accuracy.append(score)
-depth = accuracy.index(max(accuracy))
+depth = accuracy.index(max(accuracy))+1
 
 # use decision tree with optimal max_depth parameter
 model = tree.DecisionTreeClassifier(max_depth = depth, random_state = 222)
@@ -60,7 +60,7 @@ depth_summary = pd.DataFrame([depth_range, accuracy], index = ["max_depth", "acc
 depth_summary.to_csv(args.output_file_depth)
 
 # creating feature summary table
-feature = list(data.columns)
+feature = list(X.columns)
 importance = list(model.feature_importances_)
 feature_summary = pd.DataFrame([feature, importance], index = ["variable", "feature_importance"]).T
 # store feature summary table to csv file
