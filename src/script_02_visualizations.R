@@ -29,50 +29,50 @@ viz_data <- read_csv(input_file)
 
 # Visualizing individual attributes, not being saved to files. 
 # Meant for data explorations for further plots below
-base_viz <- viz_data %>% 
- ggplot()
+#base_viz <- viz_data %>% 
+# ggplot()
 
-base_viz + 
-  geom_histogram(aes(x=age), bins=20) +
-  labs(title="Age Distribution", x="Age", y="Frequency")
+#base_viz + 
+#  geom_histogram(aes(x=age), bins=20) +
+#  labs(title="Age Distribution", x="Age", y="Frequency")
     
-base_viz + 
-  geom_bar(aes(x=education)) +
-  labs(title="Education Distribution", x="Education Level", y="Frequency")
+#base_viz + 
+#  geom_bar(aes(x=education)) +
+#  labs(title="Education Distribution", x="Education Level", y="Frequency")
 
-base_viz + 
-  geom_histogram(aes(x=educationNum)) +
-  labs(title="Number of Educational Years Distribution", x="Number of years", y="Frequency")
+#base_viz + 
+#  geom_histogram(aes(x=educationNum)) +
+#  labs(title="Number of Educational Years Distribution", x="Number of years", y="Frequency")
 
-base_viz + 
-  geom_bar(aes(x=married)) +
-  labs(title="Married and Non-married Distribution", x="Married or Not Married", y="Frequency")
+#base_viz + 
+#  geom_bar(aes(x=married)) +
+#  labs(title="Married and Non-married Distribution", x="Married or Not Married", y="Frequency")
 
-base_viz + 
-  geom_bar(aes(x=race)) +
-  labs(title="Race Distribution", x="Race", y="Frequency")
+#base_viz + 
+#  geom_bar(aes(x=race)) +
+#  labs(title="Race Distribution", x="Race", y="Frequency")
 
-base_viz + 
-  geom_bar(aes(x=sex)) +
-  labs(title="Sex Distribution", x="Sex", y="Frequency")
+#base_viz + 
+#  geom_bar(aes(x=sex)) +
+#  labs(title="Sex Distribution", x="Sex", y="Frequency")
 
-base_viz + 
-  geom_histogram(aes(x=capitalGain)) +
-  scale_x_log10() +
-  labs(title="Capital Gain Distribution", x="Capital Gains (Log10 Scale", y="Frequency")
+#base_viz + 
+#  geom_histogram(aes(x=capitalGain)) +
+#  scale_x_log10() +
+#  labs(title="Capital Gain Distribution", x="Capital Gains (Log10 Scale", y="Frequency")
 
-base_viz + 
-  geom_histogram(aes(x=capitalLoss)) +
-  scale_x_log10() +
-  labs(title="Capital Loss Distribution", x="Capital Loss (Log10 Scale)", y="Frequency")
+#base_viz + 
+#  geom_histogram(aes(x=capitalLoss)) +
+#  scale_x_log10() +
+#  labs(title="Capital Loss Distribution", x="Capital Loss (Log10 Scale)", y="Frequency")
 
-base_viz + 
-  geom_histogram(aes(x=hrPerWeek)) +
-  labs(title="Hours Worked Per Week Distribution", x="Hours", y="Frequency")
+#base_viz + 
+#  geom_histogram(aes(x=hrPerWeek)) +
+#  labs(title="Hours Worked Per Week Distribution", x="Hours", y="Frequency")
 
-base_viz + 
-  geom_bar(aes(x=income)) +
-  labs(title="Income Distribution", x="Income", y="Frequency")
+#base_viz + 
+#  geom_bar(aes(x=income)) +
+#  labs(title="Income Distribution", x="Income", y="Frequency")
 
 #save following plot
 png(file=output_file_viz_01)
