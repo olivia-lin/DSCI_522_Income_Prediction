@@ -52,6 +52,41 @@ We created 2 separate data sets. 1 for exploratory data analysis which used our 
 
 ## Exploratory Data Analysis
 
+## Methodology
+
+To answer our proposal question, we used decision tree classifier from `scikit-learn` package. We followed the steps listed below to build our decision tree classifier:
+
+-	Separated cleaned data into features `X` and target `y` (income level)
+-	Split the data set into training and testing sets (we are using 80% for training and 20% for testing)
+-	Perform 5-fold cross validation on the training set to find the optimal value (range from 1 to 20) of max depth parameter for the decision tree in regard of accuracy
+-	Build the decision tree model using the optimal max depth parameter as we find using cross validation accuracy
+-	Predict income level using testing set and report the accuracy of this model
+
+## Results
+
+![](../results/depth_graph.png)
+
+The optimal max depth we found is 10 steps. The accuracy of our training set is 86.48% and the accuracy of our testing set is 85.66% which shows that our decision tree does a decent job predicting the income level.
+
+![](../results/feature_graph.png)
+
+To answer our proposal question, we looked at feature importances of the decision tree. We found that the most influential factors of the income level are marriage status, capital gain, and education level. The feature importance is about 40% for marriage status  and 20% for capital gain and education level.
+
+## Limitations
+
+- More data required for stronger predictions
+- Incomplete data due to missing values
+- Puzzling data wrangling to original data (for the feature education, the original data set breaks people didn’t graduate from high school into groups such as 10th and 11th grade, we combine all people didn’t graduate from high school into one group)
+- Limited values for categorical variables (race only has five categories)
+- Data collected from 1994 may be different from data collected more recently (more categories in sex)
+
+## Future Direction
+
+-	Convert categorical variables to numeric variables in a more meaningful way
+-	Try a different classification approach, such as k-NN, and compare results
+-	Use a more recent data set
+
+## References
 
 
-## 
+
