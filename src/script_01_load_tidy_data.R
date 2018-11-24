@@ -5,15 +5,10 @@
 #
 # This script takes in the original data set and returns a cleaned data set for our project.
 # This script should be run under the root folder.
-#
-<<<<<<< HEAD
-# Usage: Rscript script_01_load_tidy_data.R
-# ex. RScript src/script_01_load_tidy_data.R https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data data/tidy_data.csv
-         
-=======
+
+
 # Usage: Rscript src/script_01_load_tidy_data.R 
 # Example: Rscript src/script_01_load_tidy_data.R https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data data/tidy_data_viz.csv data/tidy_data_ml.csv
->>>>>>> upstream/master
 
 
 # import libraries/packages
@@ -41,7 +36,7 @@ data_cleaned_viz <- data %>%
          occupation=factor(occupation), relationship=factor(relationship), 
          race=factor(race), sex=factor(sex), nativeCountry=factor(nativeCountry), 
          income=factor(income)) %>% 
-  select(-occupation, -relationship, -nativeCountry, -workclass) %>% 
+  select(-occupation, -relationship, -nativeCountry, -workclass, -fnlwgt) %>% 
   mutate(married=fct_collapse(data$married,
                               married = c("Married-AF-spouse", "Married-civ-spouse", "Married-spouse-absent"),
                               notMarried = c("Divorced", "Never-married", "Separated", "Widowed"))) %>% 
