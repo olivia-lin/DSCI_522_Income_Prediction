@@ -11,8 +11,9 @@
 # arg1 = input data file, arg2 = output visualizations file
 # Example: Rscript src/script_02_visualizations.R data/tidy_data_viz.csv reports/data_viz.png
 
-
 # import libraries/packages
+if(!require(corrplot)){install.packages("corrplot")}
+
 library(tidyverse)
 library(ggplot2)
 library(corrplot)

@@ -1,0 +1,1004 @@
+<<<<<<< HEAD
+factor(category, levels = unique(category), ordered = TRUE)
+)
+View(desc)
+View(hurricane_07)
+hurricane_07 %>% left_join(desc, by="category")
+a <- left_join(hurricane_07, desc, by="category")
+View(a)
+b <- left_join(dec, hurricane_07, by="category")
+b <- left_join(desc, hurricane_07, by="category")
+View(b)
+hurricane_summary <- storms %>%
+filter(status == "hurricane", year %in% c(2006, 2007)) %>%
+group_by(name) %>%
+summarise(
+max_wind = max(wind, na.rm = TRUE),
+n = n()
+)
+ggplot(hurricane_summary, aes(max_wind, name)) + geom_point()
+View(hurricane_summary)
+hurricane_07 <- storms %>%
+filter(status == "hurricane", year == 2007) %>%
+select(name, category) %>%
+droplevels()
+desc <- tribble(
+~ category,                   ~ damage,
+1L,               "some damage",
+2L,          "extensive damage",
+3L,        "devastating damage",
+4L,       "catastrophic damage",
+5L, "worst catastrophic damage"
+)
+desc<- desc %>%
+mutate(category =
+factor(category, levels = unique(category), ordered = TRUE)
+)
+hurricane_07 %>% left_join(desc, by="category")
+#a <- left_join(hurricane_07, desc, by="category")
+df1 <-  storms%>%
+filter(name %in% c("Caroline", "Doris")) %>%
+select(c(name, status, year, category)) %>%
+droplevels()
+df2 <-  storms%>%
+filter(name %in% c("Anita", "David")) %>%
+select(c(name, status, year, category)) %>%
+droplevels()
+v1 <- df1$name
+v2 <- df2$name
+levels(v1)
+levels(v2)
+df1 <-  storms%>%
+filter(name %in% c("Caroline", "Doris")) %>%
+select(c(name, status, year, category)) %>%
+droplevels()
+df2 <-  storms%>%
+filter(name %in% c("Anita", "David")) %>%
+select(c(name, status, year, category)) %>%
+droplevels()
+v1 <- df1$name
+v2 <- df2$name
+levels(v1)
+levels(v2)
+is.factor(v1)
+levels(v12)
+if (is.factor(v1) && is.factor(v2)) {
+v12 <- fct_c(v1,v2)
+} else {
+v12 <- as_factor(c(v1,v2))
+}
+levels(v12)
+v12
+## added by Aaron
+library(magrittr)
+df1 %<>% mutate(name = as_factor(name))
+df2 %<>% mutate(name = as_factor(name))
+## /added by Aaron
+bind_rows(df1, df2)
+rbind(df1, df2)
+View(df1)
+View(df2)
+View(df2)
+bind_rows(df1, df2)
+sum(is.na(df1$name))
+sum(is.na(df2$name))
+nrow(is.na(df2$name))
+nrow(is.na(df1$name))
+is.na(df2$name)
+is.na(df1$name)
+nrow(df1)
+nrow(df2)
+df1 %<>% mutate(name = as_factor(name))
+df2 %<>% mutate(name = as_factor(name))
+bind_rows(df1, df2)
+rbind(df1, df2)
+df12_br <- bind_rows(df1, df2)
+df12_rb <- rbind(df1, df2)
+df12_br %<>% mutate(name=as_factor(name))
+df12_br$name
+df12_rb$name
+all.equal(df12_br$name, df12_rb$name)
+DSCI523_list <- list("Instructor" = "Jenny","TF" = "Shaun", "TA" = list("Aaron", "Moahmed"))
+print(DSCI523_list[2])
+print(DSCI523_list[[2]])
+print(DSCI523_list$TF)
+print(DSCI523_list$TF)
+print(DSCI523_list)
+DSCI523_list$TA[[1]]
+derby_winners <- c("Orb",                           ## statement 1
+"Macbeth II",
+"Vagrant",
+"Tomy Lee",
+"Burgoo King",
+"Citation",
+"Lord Murphy",
+"His Eminence",
+"Count Turf",
+"Dust Commander")
+derby_list <- stringr::str_split(derby_winners, " ") ## statement 2
+str(derby_list)                                      ## statement 3
+derby_list %>% purrr::map_int(length)                ## statement 4
+(derby_list <- stringr::str_split(derby_winners, " "))
+(derby_list %>% purrr::map_int(length))
+map_chr(derby_list, function(x) paste0(x, collapse = '_'))
+data <- read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data", col_names = FALSE)
+data <- read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data", col_names = FALSE)
+library(tidyverse)
+data <- read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data", col_names = FALSE)
+View(data)
+data <- read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data", col_names = FALSE)
+data <- read_csv(input_file, col_names = FALSE)
+#Data Wrangling
+colnames(data) <- c("age", "workclass", "fnlwgt", "education", "educationNum", "married",
+"occupation", "relationship", "race",  "sex", "capitalGain", "capitalLoss",
+"hrPerWeek", "nativeCountry", "income")
+memory.size()
+library(tidyverse)
+ata_cleaned_viz <- data %>%
+=======
+doctorate = "Doctorate")) %>%
+mutate(education=fct_reorder(data$education, c("nonHSgrad", "HSgrad", "someCollege", "assoc", "bachelors", "masters", "profSchool", "doctorate"))) %>%
+mutate(occupation=fct_recode(data$occupation, "unknown" = "?")) %>%
+mutate(nativeCountry=fct_recode(data$nativeCountry, "unknown" = "?"))
+data_cleaned_viz <- data %>%
+mutate(workclass=factor(workclass), education=factor(education), married=factor(married),
+occupation=factor(occupation), relationship=factor(relationship),
+race=factor(race), sex=factor(sex), nativeCountry=factor(nativeCountry),
+income=factor(income)) %>%
+mutate(workclass=fct_recode(data$workclass, "unknown" = "?")) %>%
+mutate(married=fct_collapse(data$married,
+married = c("Married-AF-spouse", "Married-civ-spouse", "Married-spouse-absent"),
+notMarried = c("Divorced", "Never-married", "Separated", "Widowed"))) %>%
+mutate(education=fct_collapse(data$education,
+nonHSgrad = c("10th", "11th", "12th", "1st-4th", "5th-6th", "7th-8th", "9th", "Preschool"),
+HSgrad = "HS-grad",
+someCollege = "Some-college",
+assoc = c("Assoc-acdm", "Assoc-voc"),
+bachelors = "Bachelors",
+masters = "Masters",
+profSchool = "Prof-school",
+doctorate = "Doctorate")) %>%
+mutate(education=fct_relevel(data$education, c("nonHSgrad", "HSgrad", "someCollege", "assoc", "bachelors", "masters", "profSchool", "doctorate"))) %>%
+mutate(occupation=fct_recode(data$occupation, "unknown" = "?")) %>%
+mutate(nativeCountry=fct_recode(data$nativeCountry, "unknown" = "?"))
+data_cleaned_viz <- data %>%
+mutate(workclass=factor(workclass), education=factor(education), married=factor(married),
+occupation=factor(occupation), relationship=factor(relationship),
+race=factor(race), sex=factor(sex), nativeCountry=factor(nativeCountry),
+income=factor(income)) %>%
+mutate(workclass=fct_recode(data$workclass, "unknown" = "?")) %>%
+mutate(married=fct_collapse(data$married,
+married = c("Married-AF-spouse", "Married-civ-spouse", "Married-spouse-absent"),
+notMarried = c("Divorced", "Never-married", "Separated", "Widowed"))) %>%
+mutate(education=fct_collapse(data$education,
+nonHSgrad = c("10th", "11th", "12th", "1st-4th", "5th-6th", "7th-8th", "9th", "Preschool"),
+HSgrad = "HS-grad",
+someCollege = "Some-college",
+assoc = c("Assoc-acdm", "Assoc-voc"),
+bachelors = "Bachelors",
+masters = "Masters",
+profSchool = "Prof-school",
+doctorate = "Doctorate")) %>%
+mutate(education=fct_relevel(data$education, "nonHSgrad", "HSgrad", "someCollege", "assoc", "bachelors", "masters", "profSchool", "doctorate")) %>%
+mutate(occupation=fct_recode(data$occupation, "unknown" = "?")) %>%
+mutate(nativeCountry=fct_recode(data$nativeCountry, "unknown" = "?"))
+data_cleaned_viz <- data %>%
+mutate(workclass=factor(workclass), education=factor(education), married=factor(married),
+occupation=factor(occupation), relationship=factor(relationship),
+race=factor(race), sex=factor(sex), nativeCountry=factor(nativeCountry),
+income=factor(income)) %>%
+mutate(workclass=fct_recode(data$workclass, "unknown" = "?")) %>%
+mutate(married=fct_collapse(data$married,
+married = c("Married-AF-spouse", "Married-civ-spouse", "Married-spouse-absent"),
+notMarried = c("Divorced", "Never-married", "Separated", "Widowed"))) %>%
+mutate(education=fct_collapse(data$education,
+nonHSgrad = c("10th", "11th", "12th", "1st-4th", "5th-6th", "7th-8th", "9th", "Preschool"),
+HSgrad = "HS-grad",
+someCollege = "Some-college",
+assoc = c("Assoc-acdm", "Assoc-voc"),
+bachelors = "Bachelors",
+masters = "Masters",
+profSchool = "Prof-school",
+doctorate = "Doctorate")) %>%
+mutate(education=ordered(data$education, levels = c("nonHSgrad", "HSgrad", "someCollege", "assoc", "bachelors", "masters", "profSchool", "doctorate"))) %>%
+mutate(occupation=fct_recode(data$occupation, "unknown" = "?")) %>%
+mutate(nativeCountry=fct_recode(data$nativeCountry, "unknown" = "?"))
+table(data_cleaned_viz$education)
+data_cleaned_viz <- data %>%
+mutate(workclass=factor(workclass), education=factor(education), married=factor(married),
+occupation=factor(occupation), relationship=factor(relationship),
+race=factor(race), sex=factor(sex), nativeCountry=factor(nativeCountry),
+income=factor(income)) %>%
+mutate(workclass=fct_recode(data$workclass, "unknown" = "?")) %>%
+mutate(married=fct_collapse(data$married,
+married = c("Married-AF-spouse", "Married-civ-spouse", "Married-spouse-absent"),
+notMarried = c("Divorced", "Never-married", "Separated", "Widowed"))) %>%
+mutate(education=fct_collapse(data$education,
+nonHSgrad = c("10th", "11th", "12th", "1st-4th", "5th-6th", "7th-8th", "9th", "Preschool"),
+HSgrad = "HS-grad",
+someCollege = "Some-college",
+assoc = c("Assoc-acdm", "Assoc-voc"),
+bachelors = "Bachelors",
+masters = "Masters",
+profSchool = "Prof-school",
+doctorate = "Doctorate")) %>%
+mutate(education=ordered(data$education, levels = c("nonHSgrad", "HSgrad", "someCollege", "assoc", "bachelors", "masters", "profSchool", "doctorate"))) %>%
+mutate(occupation=fct_recode(data$occupation, "unknown" = "?")) %>%
+mutate(nativeCountry=fct_recode(data$nativeCountry, "unknown" = "?"))
+data_cleaned_viz <- data %>%
+mutate(workclass=factor(workclass), education=factor(education), married=factor(married),
+occupation=factor(occupation), relationship=factor(relationship),
+race=factor(race), sex=factor(sex), nativeCountry=factor(nativeCountry),
+income=factor(income)) %>%
+mutate(workclass=fct_recode(data$workclass, "unknown" = "?")) %>%
+mutate(married=fct_collapse(data$married,
+married = c("Married-AF-spouse", "Married-civ-spouse", "Married-spouse-absent"),
+notMarried = c("Divorced", "Never-married", "Separated", "Widowed"))) %>%
+mutate(education=fct_collapse(data$education,
+nonHSgrad = c("10th", "11th", "12th", "1st-4th", "5th-6th", "7th-8th", "9th", "Preschool"),
+HSgrad = "HS-grad",
+someCollege = "Some-college",
+assoc = c("Assoc-acdm", "Assoc-voc"),
+bachelors = "Bachelors",
+masters = "Masters",
+profSchool = "Prof-school",
+doctorate = "Doctorate")) %>%
+mutate(education=fct_relevel(data$education, levels = c("nonHSgrad", "HSgrad", "someCollege", "assoc", "bachelors", "masters", "profSchool", "doctorate"))) %>%
+mutate(occupation=fct_recode(data$occupation, "unknown" = "?")) %>%
+mutate(nativeCountry=fct_recode(data$nativeCountry, "unknown" = "?"))
+data_cleaned_viz <- data %>%
+mutate(workclass=factor(workclass), education=factor(education), married=factor(married),
+occupation=factor(occupation), relationship=factor(relationship),
+race=factor(race), sex=factor(sex), nativeCountry=factor(nativeCountry),
+income=factor(income)) %>%
+mutate(workclass=fct_recode(data$workclass, "unknown" = "?")) %>%
+mutate(married=fct_collapse(data$married,
+married = c("Married-AF-spouse", "Married-civ-spouse", "Married-spouse-absent"),
+notMarried = c("Divorced", "Never-married", "Separated", "Widowed"))) %>%
+mutate(education=fct_collapse(data$education,
+nonHSgrad = c("10th", "11th", "12th", "1st-4th", "5th-6th", "7th-8th", "9th", "Preschool"),
+HSgrad = "HS-grad",
+someCollege = "Some-college",
+assoc = c("Assoc-acdm", "Assoc-voc"),
+bachelors = "Bachelors",
+masters = "Masters",
+profSchool = "Prof-school",
+doctorate = "Doctorate")) %>%
+mutate(education=fct_relevel(data$education, "nonHSgrad", "HSgrad", "someCollege", "assoc", "bachelors", "masters", "profSchool", "doctorate")) %>%
+mutate(occupation=fct_recode(data$occupation, "unknown" = "?")) %>%
+mutate(nativeCountry=fct_recode(data$nativeCountry, "unknown" = "?"))
+education=factor(data$education, levels(data$education)[c("nonHSgrad", "HSgrad", "someCollege", "assoc", "bachelors", "masters", "profSchool", "doctorate")])
+data_cleaned_viz <- data %>%
+mutate(workclass=factor(workclass), education=factor(education), married=factor(married),
+occupation=factor(occupation), relationship=factor(relationship),
+race=factor(race), sex=factor(sex), nativeCountry=factor(nativeCountry),
+income=factor(income)) %>%
+mutate(workclass=fct_recode(data$workclass, "unknown" = "?")) %>%
+mutate(married=fct_collapse(data$married,
+married = c("Married-AF-spouse", "Married-civ-spouse", "Married-spouse-absent"),
+notMarried = c("Divorced", "Never-married", "Separated", "Widowed"))) %>%
+mutate(education=fct_collapse(data$education,
+nonHSgrad = c("10th", "11th", "12th", "1st-4th", "5th-6th", "7th-8th", "9th", "Preschool"),
+HSgrad = "HS-grad",
+someCollege = "Some-college",
+assoc = c("Assoc-acdm", "Assoc-voc"),
+bachelors = "Bachelors",
+masters = "Masters",
+profSchool = "Prof-school",
+doctorate = "Doctorate")) %>%
+mutate(education=factor(data$education, levels(data$education)[c("nonHSgrad", "HSgrad", "someCollege", "assoc", "bachelors", "masters", "profSchool", "doctorate")])) %>%
+#mutate(education=forcats::gss_cat[, c("rincome", "denom")fct_relevel(data$education, "nonHSgrad", "HSgrad", "someCollege", "assoc", "bachelors", "masters", "profSchool", "doctorate")) %>%
+mutate(occupation=fct_recode(data$occupation, "unknown" = "?")) %>%
+mutate(nativeCountry=fct_recode(data$nativeCountry, "unknown" = "?"))
+table(data_cleaned_viz$education)
+data_cleaned_viz <- data %>%
+>>>>>>> upstream/master
+mutate(workclass=factor(workclass), education=factor(education), married=factor(married),
+occupation=factor(occupation), relationship=factor(relationship),
+race=factor(race), sex=factor(sex), nativeCountry=factor(nativeCountry),
+income=factor(income)) %>%
+<<<<<<< HEAD
+select(-occupation, -relationship, -nativeCountry, -workclass) %>%
+=======
+mutate(workclass=fct_recode(data$workclass, "unknown" = "?")) %>%
+>>>>>>> upstream/master
+mutate(married=fct_collapse(data$married,
+married = c("Married-AF-spouse", "Married-civ-spouse", "Married-spouse-absent"),
+notMarried = c("Divorced", "Never-married", "Separated", "Widowed"))) %>%
+mutate(education=fct_collapse(data$education,
+nonHSgrad = c("10th", "11th", "12th", "1st-4th", "5th-6th", "7th-8th", "9th", "Preschool"),
+HSgrad = "HS-grad",
+someCollege = "Some-college",
+assoc = c("Assoc-acdm", "Assoc-voc"),
+bachelors = "Bachelors",
+masters = "Masters",
+<<<<<<< HEAD
+profSchool = "Prof-school",
+doctorate = "Doctorate"))
+data_cleaned_viz <- data_cleaned_viz %>%
+mutate(education=fct_relevel(data_cleaned_viz$education, "nonHSgrad", "HSgrad", "someCollege", "assoc", "bachelors", "masters", "profSchool"))
+=======
+profSchool = "Prof-school",
+doctorate = "Doctorate")) %>%
+mutate(education=fct_relevel(data$education, "nonHSgrad", "HSgrad", "someCollege", "assoc", "bachelors", "masters", "profSchool")) %>%
+mutate(occupation=fct_recode(data$occupation, "unknown" = "?")) %>%
+mutate(nativeCountry=fct_recode(data$nativeCountry, "unknown" = "?"))
+data_cleaned_viz <- data %>%
+mutate(workclass=factor(workclass), education=factor(education), married=factor(married),
+occupation=factor(occupation), relationship=factor(relationship),
+race=factor(race), sex=factor(sex), nativeCountry=factor(nativeCountry),
+income=factor(income)) %>%
+mutate(workclass=fct_recode(data$workclass, "unknown" = "?")) %>%
+mutate(married=fct_collapse(data$married,
+married = c("Married-AF-spouse", "Married-civ-spouse", "Married-spouse-absent"),
+notMarried = c("Divorced", "Never-married", "Separated", "Widowed"))) %>%
+mutate(education=fct_collapse(data$education,
+nonHSgrad = c("10th", "11th", "12th", "1st-4th", "5th-6th", "7th-8th", "9th", "Preschool"),
+HSgrad = "HS-grad",
+someCollege = "Some-college",
+assoc = c("Assoc-acdm", "Assoc-voc"),
+bachelors = "Bachelors",
+masters = "Masters",
+profSchool = "Prof-school",
+doctorate = "Doctorate")) %>%
+mutate(education=fct_relevel(data$education, "nonHSgrad", "HSgrad")) %>%
+mutate(occupation=fct_recode(data$occupation, "unknown" = "?")) %>%
+mutate(nativeCountry=fct_recode(data$nativeCountry, "unknown" = "?"))
+>>>>>>> upstream/master
+data_cleaned_viz <- data %>%
+mutate(workclass=factor(workclass), education=factor(education), married=factor(married),
+occupation=factor(occupation), relationship=factor(relationship),
+race=factor(race), sex=factor(sex), nativeCountry=factor(nativeCountry),
+income=factor(income)) %>%
+select(-occupation, -relationship, -nativeCountry, -workclass) %>%
+mutate(married=fct_collapse(data$married,
+married = c("Married-AF-spouse", "Married-civ-spouse", "Married-spouse-absent"),
+notMarried = c("Divorced", "Never-married", "Separated", "Widowed"))) %>%
+mutate(education=fct_collapse(data$education,
+nonHSgrad = c("10th", "11th", "12th", "1st-4th", "5th-6th", "7th-8th", "9th", "Preschool"),
+HSgrad = "HS-grad",
+someCollege = "Some-college",
+assoc = c("Assoc-acdm", "Assoc-voc"),
+bachelors = "Bachelors",
+masters = "Masters",
+profSchool = "Prof-school",
+doctorate = "Doctorate"))
+<<<<<<< HEAD
+data_cleaned_viz <- data_cleaned_viz %>%
+mutate(education=fct_relevel(data_cleaned_viz$education, "nonHSgrad", "HSgrad", "someCollege", "assoc", "bachelors", "masters", "profSchool"))
+View(data_cleaned_viz)
+library(tidyverse)
+viz_data <- read_csv(data/tidy_data_viz.csv)
+viz_data <- read_csv("data/tidy_data_viz.csv")
+library(ggplot2)
+plotmatrix(viz_data[,1:11])
+pairs(viz_data[,1:11])
+viz_data <- read_csv("data/tidy_data_viz.csv")
+viz_data <- read_csv("../data/tidy_data_viz.csv")
+viz_data <- read_csv("..data/tidy_data_viz.csv")
+setwd("~/MDS_Github/MDS3/DSCI_522_Income_Prediction")
+viz_data <- read_csv("data/tidy_data_viz.csv")
+pairs(viz_data[,1:10])
+pairs(viz_data[,1:10])
+base_viz <- viz_data %>%
+ggplot()
+base_viz + geom_histogram(x=age)
+base_viz + geom_histogram(aes(x=age))
+base_viz + geom_histogram(aes(x=age), bins=50)
+base_viz + geom_histogram(aes(x=age), bins=20)
+base_viz + geom_histogram(aes(x=education))
+base_viz + geom_bar(aes(x=education))
+base_viz + geom_histogram(aes(x=educationNum))
+base_viz + geom_bar(aes(x=married))
+base_viz + geom_bar(aes(x=race))
+base_viz + geom_bar(aes(x=sex))
+base_viz + geom_histogram(aes(x=capitalGain))
+base_viz + geom_histogram(aes(x=capitalLoss))
+base_viz + geom_histogram(aes(x=hrPerWeek))
+base_viz + geom_bar(aes(x=income))
+base_viz + geom_histogram(aes(x=age), bins=20)
++ labs(title="Age Distribution", xlab="Age", ylab="Frequency")
+base_viz + geom_histogram(aes(x=age), bins=20)
++ labs(main="Age Distribution", x="Age", y="Frequency")
+base_viz + geom_histogram(aes(x=age), bins=20)
++ labs(title="Age Distribution", x="Age", y="Frequency")
+base_viz + geom_histogram(aes(x=age), bins=20)
++ ggtitle("Age Distribution") + xlab("Age") + ylab("Frequency")
+base_viz + geom_histogram(aes(x=age), bins=20)
++ ggtitle("Age Distribution") + xlabs("Age") + ylabs("Frequency")
+base_viz + geom_histogram(aes(x=age), bins=20)
++ labs(title="Age Distribution", x="Age", y="Frequency")
+base_viz + geom_histogram(aes(x=age), bins=20) +
+labs(title="Age Distribution", x="Age", y="Frequency")
+base_viz +
+geom_bar(aes(x=education)) +
+labs(title="Education Distribution", x="Education Level", y="Frequency")
+base_viz +
+geom_histogram(aes(x=educationNum)) +
+labs(title="Number of Educational Years Distribution", x="Number of years", y="Frequency")
+base_viz +
+geom_bar(aes(x=married)) +
+labs(title="Married and Non-married Distribution", y="Frequency")
+base_viz +
+geom_bar(aes(x=married)) +
+labs(title="Married and Non-married Distribution", y="Frequency")
+base_viz +
+geom_bar(aes(x=married)) +
+labs(title="Married and Non-married Distribution", x="Married or Not Married", y="Frequency")
+base_viz +
+geom_bar(aes(x=race)) +
+labs(title="Race Distribution", x="Race", y="Frequency")
+base_viz +
+geom_bar(aes(x=sex)) +
+labs(title="Sex Distribution", x="Sex", y="Frequency")
+base_viz +
+geom_histogram(aes(x=capitalGain)) +
+labs(title="Capital Gain Distribution", x="Capital Gains", y="Frequency")
+base_viz +
+geom_histogram(aes(x=capitalLoss)) +
+labs(title="Capital Loss Distribution", x="Capital Loss", y="Frequency")
+base_viz +
+geom_histogram(aes(x=hrPerWeek)) +
+labs(title="Hours Worked Per Week Distribution", x="Hours", y="Frequency")
+base_viz +
+geom_bar(aes(x=income)) +
+labs(title="Income Distribution", x="Income", y="Frequency")
+base_viz +
+geom_histogram(aes(x=capitalLoss)) +
+scale_x_log10() +
+labs(title="Capital Loss Distribution", x="Capital Loss", y="Frequency")
+base_viz +
+geom_histogram(aes(x=capitalGain)) +
+scale_x_log10() +
+labs(title="Capital Gain Distribution", x="Capital Gains (Log10 Scale", y="Frequency")
+cor(viz_data[, integer.var])
+library(corrplot)
+cor(viz_data[, integer.var])
+cor(viz_data[, numeric.var])
+cor(viz_data[, sapply(viz_data, is.numeric)])
+numeric_var <- sapply(viz_data, is.numeric)
+corr_matrix <- cor(viz_data[, numeric_var])
+corrplot(corr.matrix)
+corrplot(corr_matrix)
+numeric_var <- sapply(viz_data, is.numeric)
+corr_matrix <- cor(viz_data[, numeric_var])
+corrplot(corr_matrix, main="Correlation of Quantitative Variables")
+numeric_var <- sapply(viz_data, is.numeric)
+corr_matrix <- cor(viz_data[, numeric_var])
+corrplot(corr_matrix, main="Correlation of Quantitative Variables")
+par(mar=c(5.1,4.1,4.1,2.1))
+numeric_var <- sapply(viz_data, is.numeric)
+corr_matrix <- cor(viz_data[, numeric_var])
+corrplot(corr_matrix, main="Correlation of Quantitative Variables")
+boxplot(age~income, main="Age vs Income",
+xlab="Income", ylab="Age")
+boxplot(viz_data, age~income, main="Age vs Income",
+xlab="Income", ylab="Age")
+base_viz +
+geom_boxplot(viz_data, age~income, main="Age vs Income", xlab="Income", ylab="Age")
+base_viz +
+geom_boxplot(age~income, main="Age vs Income", xlab="Income", ylab="Age")
+base_viz +
+geom_boxplot(aes(age~income)
+)
+base_viz +
+geom_boxplot(aes(age~income))
+boxplot(viz_data$age~income)
+boxplot(viz_data$age~viz_data$income)
+base_viz +
+geom_boxplot(aes(age~income))
+boxplot(viz_data$age~viz_data$income)
+base_viz +
+geom_point(aes(x=income, y=age))
+base_viz +
+geom_tile(age, income, fill=value)
+base_viz +
+geom_tile(aes(age, income, fill=value))
+base_viz +
+geom_tile(aes(age, income, fill=count))
+boxplot(viz_data$age~viz_data$income)
+boxplot(viz_data$age~viz_data$income, main="Age vs Income Boxplot", xlab="Income", ylab="Income")
+boxplot(viz_data$educationNum~viz_data$income, main="Age vs Income Boxplot",
+xlab="Number of Years of Education", ylab="Income")
+boxplot(viz_data$hrPerWeek~viz_data$income, main="Hours Worked Per Week vs Income Boxplot",
+xlab="Hours Per Week", ylab="Income")
+par(mfrow=c(1,3))  ## Arrange plots in a 4x4 grid
+boxplot(viz_data$age~viz_data$income, main="Age vs Income Boxplot", xlab="Income", ylab="Income")
+boxplot(viz_data$educationNum~viz_data$income, main="Years of Education vs Income Boxplot",
+xlab="Years of Education", ylab="Income")
+boxplot(viz_data$hrPerWeek~viz_data$income, main="Hours Worked Per Week vs Income Boxplot",
+xlab="Hours Per Week", ylab="Income")
+#Correlation of numerical variables and income
+par(mfrow=c(1,3))  ## Arrange plots in a 4x4 grid
+boxplot(viz_data$age~viz_data$income, main="Age vs Income", xlab="Income", ylab="Income")
+boxplot(viz_data$educationNum~viz_data$income, main="Years of Education vs Income",
+xlab="Years of Education", ylab="Income")
+boxplot(viz_data$hrPerWeek~viz_data$income, main="Hours Worked Per Week vs Income",
+xlab="Hours Per Week", ylab="Income")
+par(mfrow=c(1,3.5))  ## Arrange plots in a 4x4 grid
+boxplot(viz_data$age~viz_data$income, main="Age vs Income", xlab="Income", ylab="Income")
+boxplot(viz_data$educationNum~viz_data$income, main="Years of Education vs Income",
+xlab="Years of Education", ylab="Income")
+boxplot(viz_data$hrPerWeek~viz_data$income, main="Hours Worked Per Week vs Income",
+xlab="Hours Per Week", ylab="Income")
+plot(table(viz_data$income, viz_data$education), main="Education vs. Income Class", cex=1.5)
+par(mfrow=c(3,2))
+par(las=1)  ## horizontal axis labels
+plot(table(viz_data$income, viz_data$education), main="Education vs. Income Class", cex=1.5)
+par(las=0)  ## parallel axis labels
+par(las=1)  ## horizontal axis labels
+plot(table(viz_data$income, viz_data$education), main="Education vs. Income Class", cex=1.5)
+par(las=0)  ## parallel axis labels
+plot(table(viz_data$income, viz_data$education), main="Education vs. Income Class", cex=1.5)
+par(las=0)  ## parallel axis labels
+plot(table(viz_data$income, viz_data$education), main="Education vs. Income Class")
+par(mfrow=c(1,3))  ## Arrange plots in a 4x4 grid
+boxplot(viz_data$age~viz_data$income, main="Age vs Income", xlab="Income", ylab="Income")
+boxplot(viz_data$educationNum~viz_data$income, main="Years of Education vs Income",
+xlab="Years of Education", ylab="Income")
+boxplot(viz_data$hrPerWeek~viz_data$income, main="Hours Worked Per Week vs Income",
+xlab="Hours Per Week", ylab="Income")
+plot(table(viz_data$income, viz_data$education), main="Education vs. Income Class")
+plot(table(viz_data$income, married), main="Marital Status vs. Income")
+plot(table(viz_data$income, viz_data$married), main="Marital Status vs. Income")
+plot(table(viz_data$income, viz_data$race), main="Race vs. Income Class")
+boxplot(viz_data$capitalGain~viz_data$income, main="Capital Gains vs Income",
+xlab="Capital Gains", ylab="Income")
+boxplot(viz_data$capitalLoss~viz_data$income, main="Capital Loss vs Income",
+xlab="Capital Loss", ylab="Income")
+plot(table(viz_data$income, viz_data$education), main="Education vs. Income Class")
+plot(table(viz_data$income, viz_data$married), main="Marital Status vs. Income")
+plot(table(viz_data$income, viz_data$married), main="Relationship vs. Income Class")
+plot(table(viz_data$income, viz_data$race), main="Race vs. Income Class")
+plot(table(viz_data$income, viz_data$sex), main="Sex vs. Income Class")
+plot(table(viz_data$income, viz_data$race), main="Race vs. Income Class")
+par(mfrow=c(3,2))
+par(las=1)  ## horizontal axis labels
+plot(table(viz_data$income, viz_data$education), main="Education vs. Income Class")
+plot(table(viz_data$income, viz_data$married), main="Marital Status vs. Income")
+plot(table(viz_data$income, viz_data$married), main="Relationship vs. Income Class")
+plot(table(viz_data$income, viz_data$race), main="Race vs. Income Class")
+plot(table(viz_data$income, viz_data$sex), main="Sex vs. Income Class")
+par(las=0)
+par(mfrow=c(3,2))
+par(las=1)  ## horizontal axis labels
+plot(table(viz_data$income, viz_data$education), main="Education vs. Income Class")
+plot(table(viz_data$income, viz_data$married), main="Marital Status vs. Income")
+plot(table(viz_data$income, viz_data$married), main="Relationship vs. Income Class")
+plot(table(viz_data$income, viz_data$race), main="Race vs. Income Class")
+plot(table(viz_data$income, viz_data$sex), main="Sex vs. Income Class")
+par(las=0)
+boxplot(viz_data$hrPerWeek~viz_data$income, main="Hours Worked Per Week vs Income",
+xlab="Hours Per Week", ylab="Income")
+par(mfrow=c(3,2))
+par(las=1)  ## horizontal axis labels
+plot(table(viz_data$income, viz_data$education), main="Education vs. Income Class")
+plot(table(viz_data$income, viz_data$married), main="Marital Status vs. Income")
+plot(table(viz_data$income, viz_data$married), main="Relationship vs. Income Class")
+plot(table(viz_data$income, viz_data$race), main="Race vs. Income Class")
+plot(table(viz_data$income, viz_data$sex), main="Sex vs. Income Class")
+par(las=0)
+plot(table(viz_data$income, viz_data$education), main="Education vs. Income Class")
+par(mfrow=c(3,2))
+par(las=1)  ## horizontal axis labels
+plot(table(viz_data$income, viz_data$education), main="Education vs. Income Class")
+plot(table(viz_data$income, viz_data$married), main="Marital Status vs. Income")
+plot(table(viz_data$income, viz_data$married), main="Relationship vs. Income Class")
+plot(table(viz_data$income, viz_data$race), main="Race vs. Income Class")
+plot(table(viz_data$income, viz_data$sex), main="Sex vs. Income Class")
+par(las=0)
+par(mfrow=c(2,3))
+par(las=1)  ## horizontal axis labels
+plot(table(viz_data$income, viz_data$education), main="Education vs. Income Class")
+plot(table(viz_data$income, viz_data$married), main="Marital Status vs. Income")
+plot(table(viz_data$income, viz_data$married), main="Relationship vs. Income Class")
+plot(table(viz_data$income, viz_data$race), main="Race vs. Income Class")
+plot(table(viz_data$income, viz_data$sex), main="Sex vs. Income Class")
+par(las=0)
+base_viz +
+geom_histogram(aes(x=hrPerWeek)) +
+labs(title="Hours Worked Per Week Distribution", x="Hours", y="Frequ
+base_viz +
+geom_histogram(aes(x=hrPerWeek)) +
+labs(title="Hours Worked Per Week Distribution", x="Hours", y="Frequency")
+base_viz <- viz_data %>%
+ggplot()
+base_viz +
+geom_histogram(aes(x=age), bins=20) +
+labs(title="Age Distribution", x="Age", y="Frequency")
+base_viz +
+geom_histogram(aes(x=hrPerWeek)) +
+labs(title="Hours Worked Per Week Distribution", x="Hours", y="Frequency")
+#Correlation of Quantitative Variables
+numeric_var <- sapply(viz_data, is.numeric)
+corr_matrix <- cor(viz_data[, numeric_var])
+corrplot(corr_matrix, main="Correlation of Quantitative Variables")
+par(mfrow=c(1,3))  ## Arrange plots in a 4x4 grid
+boxplot(viz_data$age~viz_data$income, main="Age vs Income", xlab="Income", ylab="Income")
+boxplot(viz_data$educationNum~viz_data$income, main="Years of Education vs Income",
+xlab="Years of Education", ylab="Income")
+boxplot(viz_data$capitalGain~viz_data$income, main="Capital Gains vs Income",
+xlab="Capital Gains", ylab="Income")
+boxplot(viz_data$capitalLoss~viz_data$income, main="Capital Loss vs Income",
+xlab="Capital Loss", ylab="Income")
+boxplot(viz_data$hrPerWeek~viz_data$income, main="Hours Worked Per Week vs Income",
+xlab="Hours Per Week", ylab="Income")
+par(mfrow=c(2,3))
+par(las=1)  ## horizontal axis labels
+plot(table(viz_data$income, viz_data$education), main="Education vs. Income Class")
+plot(table(viz_data$income, viz_data$married), main="Marital Status vs. Income")
+plot(table(viz_data$income, viz_data$married), main="Relationship vs. Income Class")
+plot(table(viz_data$income, viz_data$race), main="Race vs. Income Class")
+plot(table(viz_data$income, viz_data$sex), main="Sex vs. Income Class")
+par(las=0)
+par(mfrow=c(2,3))
+par(las=1)  ## horizontal axis labels
+plot(table(viz_data$income, viz_data$education), main="Education vs. Income")
+plot(table(viz_data$income, viz_data$married), main="Marital Status vs. Income")
+plot(table(viz_data$income, viz_data$married), main="Relationship vs. Income")
+plot(table(viz_data$income, viz_data$race), main="Race vs. Income")
+plot(table(viz_data$income, viz_data$sex), main="Sex vs. Income")
+par(las=0)
+#Correlation of numerical variables and income
+par(mfrow=c(1,3))  ## Arrange plots in a 4x4 grid
+boxplot(viz_data$age~viz_data$income, main="Age vs Income", xlab="Income", ylab="Income")
+boxplot(viz_data$educationNum~viz_data$income, main="Years of Education vs Income",
+xlab="Years of Education", ylab="Income")
+boxplot(viz_data$capitalGain~viz_data$income, main="Capital Gains vs Income",
+xlab="Capital Gains", ylab="Income")
+boxplot(viz_data$capitalLoss~viz_data$income, main="Capital Loss vs Income",
+xlab="Capital Loss", ylab="Income")
+boxplot(viz_data$hrPerWeek~viz_data$income, main="Hours Worked Per Week vs Income",
+xlab="Hours Per Week", ylab="Income")
+#Correlation of numerical variables and income
+par(mfrow=c(2,3))  ## Arrange plots in a 4x4 grid
+boxplot(viz_data$age~viz_data$income, main="Age vs Income", xlab="Income", ylab="Income")
+boxplot(viz_data$educationNum~viz_data$income, main="Years of Education vs Income",
+xlab="Years of Education", ylab="Income")
+boxplot(viz_data$capitalGain~viz_data$income, main="Capital Gains vs Income",
+xlab="Capital Gains", ylab="Income")
+boxplot(viz_data$capitalLoss~viz_data$income, main="Capital Loss vs Income",
+xlab="Capital Loss", ylab="Income")
+boxplot(viz_data$hrPerWeek~viz_data$income, main="Hours Worked Per Week vs Income",
+xlab="Hours Per Week", ylab="Income")
+#Correlation of Quantitative Variables
+numeric_var <- sapply(viz_data, is.numeric)
+corr_matrix <- cor(viz_data[, numeric_var])
+corrplot(corr_matrix, main="Correlation of Quantitative Variables")
+#Correlation of Quantitative Variables
+numeric_var <- sapply(viz_data, is.numeric)
+corr_matrix <- cor(viz_data[, numeric_var])
+corrplot(corr_matrix, main="Correlation of Quantitative Variables")
+#Correlation of Quantitative Variables
+numeric_var <- sapply(viz_data, is.numeric)
+corr_matrix <- cor(viz_data[, numeric_var])
+corrplot(corr_matrix, main="Correlation of Quantitative Variables")
+#save file
+png(filename="results/data_viz.png")
+library(corrplot)
+library(tidyverse)
+?pairs
+pairs(viz_data[,is.numeric])
+pairs(viz_data[,sapply(viz_data, is.numeric)])
+pairs(viz_data[,sapply(viz_data, is.numeric)])
+pairs(viz_data[,sapply(viz_data, is.numeric)])
+numeric_var <- sapply(viz_data, is.numeric)
+corr_matrix <- cor(viz_data[, numeric_var])
+corrplot(corr_matrix, main="Correlation of Quantitative Variables")
+setwd("~/MDS_Github/MDS3/DSCI_522_Income_Prediction")
+# import libraries/packages
+library(tidyverse)
+library(ggplot2)
+library(corrplot)
+numeric_var <- sapply(viz_data, is.numeric)
+corr_matrix <- cor(viz_data[, numeric_var])
+corrplot(corr_matrix, main="Correlation of Quantitative Variables")
+base_viz +
+geom_bar(aes(x=income)) +
+labs(title="Income Distribution", x="Income", y="Frequency")
+data <- read_csv(input_file, col_names = FALSE)
+data <- read_csv("data/tidy_data_viz.csv")
+base_viz <- viz_data %>%
+ggplot()
+base_viz +
+geom_histogram(aes(x=age), bins=20) +
+labs(title="Age Distribution", x="Age", y="Frequency")
+=======
+data_cleaned_viz %>%
+mutate(education=fct_relevel(data_cleaned_viz$education, "nonHSgrad", "HSgrad"))
+data_cleaned_viz %>%
+mutate(education=fct_relevel(data_cleaned_viz$education, "nonHSgrad", "HSgrad", "someCollege", "assoc", "bachelors", "masters", "profSchool")) %>%
+mutate(occupation=fct_recode(data$occupation, "unknown" = "?")) %>%
+data_cleaned_viz %>%
+mutate(education=fct_relevel(data_cleaned_viz$education, "nonHSgrad", "HSgrad", "someCollege", "assoc", "bachelors", "masters", "profSchool")) %>%
+mutate(occupation=fct_recode(data$occupation, "unknown" = "?")) %>%
+mutate(nativeCountry=fct_recode(data$nativeCountry, "unknown" = "?"))
+data_cleaned_viz %>%
+mutate(education=fct_relevel(data_cleaned_viz$education, "nonHSgrad", "HSgrad", "someCollege", "assoc", "bachelors", "masters", "profSchool")) %>%
+mutate(occupation=fct_recode(data_cleaned_viz$occupation, "unknown" = "?")) %>%
+mutate(nativeCountry=fct_recode(data_cleaned_viz$nativeCountry, "unknown" = "?"))
+table
+table(data_cleaned_viz$education)
+data_cleaned_viz %>%
+mutate(education=fct_relevel(data_cleaned_viz$education, "nonHSgrad", "HSgrad", "someCollege", "assoc", "bachelors", "masters", "profSchool")) %>%
+mutate(occupation=fct_recode(data_cleaned_viz$occupation, "unknown" = "?")) %>%
+mutate(nativeCountry=fct_recode(data_cleaned_viz$nativeCountry, "unknown" = "?"))
+data_cleaned_viz %>%
+mutate(education=fct_relevel(data_cleaned_viz$education, "nonHSgrad", "HSgrad", "someCollege", "assoc", "bachelors", "masters", "profSchool")) %>%
+mutate(occupation=fct_recode(data_cleaned_viz$occupation, "unknown" = "?")) %>%
+mutate(nativeCountry=fct_recode(data_cleaned_viz$nativeCountry, "unknown" = "?"))
+table(data_cleaned_viz$education)
+data_cleaned_viz %>%
+mutate(education=fct_relevel(data_cleaned_viz$education, "nonHSgrad", "HSgrad")) %>%
+mutate(occupation=fct_recode(data_cleaned_viz$occupation, "unknown" = "?")) %>%
+mutate(nativeCountry=fct_recode(data_cleaned_viz$nativeCountry, "unknown" = "?"))
+table(data_cleaned_viz$education)
+data_cleaned_viz <- data_cleaned_viz %>%
+mutate(education=fct_relevel(data_cleaned_viz$education, "nonHSgrad", "HSgrad")) %>%
+mutate(occupation=fct_recode(data_cleaned_viz$occupation, "unknown" = "?")) %>%
+mutate(nativeCountry=fct_recode(data_cleaned_viz$nativeCountry, "unknown" = "?"))
+table(data_cleaned_viz$education)
+data_cleaned_viz <- data_cleaned_viz %>%
+mutate(education=fct_relevel(data_cleaned_viz$education, "nonHSgrad", "HSgrad", "someCollege", "assoc", "bachelors", "masters", "profSchool")) %>%
+mutate(occupation=fct_recode(data_cleaned_viz$occupation, "unknown" = "?")) %>%
+mutate(nativeCountry=fct_recode(data_cleaned_viz$nativeCountry, "unknown" = "?"))
+data_cleaned_viz <- data_cleaned_viz %>%
+mutate(education=fct_relevel(data_cleaned_viz$education, "someCollege", "assoc")) %>%
+mutate(education=fct_relevel(data_cleaned_viz$education, "nonHSgrad", "HSgrad")) %>%
+mutate(occupation=fct_recode(data_cleaned_viz$occupation, "unknown" = "?")) %>%
+mutate(nativeCountry=fct_recode(data_cleaned_viz$nativeCountry, "unknown" = "?"))
+data_cleaned_viz <- data_cleaned_viz %>%
+mutate(education=fct_relevel(data_cleaned_viz$education, "someCollege", "assoc")) %>%
+mutate(education=fct_relevel(data_cleaned_viz$education, "nonHSgrad", "HSgrad")) %>%
+mutate(occupation=fct_recode(data_cleaned_viz$occupation, "unknown" = "?")) %>%
+mutate(nativeCountry=fct_recode(data_cleaned_viz$nativeCountry, "unknown" = "?"))
+data_cleaned_viz <- data_cleaned_viz %>%
+#mutate(education=fct_relevel(data_cleaned_viz$education, "someCollege", "assoc")) %>%
+mutate(education=fct_relevel(data_cleaned_viz$education, "nonHSgrad", "HSgrad")) %>%
+mutate(occupation=fct_recode(data_cleaned_viz$occupation, "unknown" = "?")) %>%
+mutate(nativeCountry=fct_recode(data_cleaned_viz$nativeCountry, "unknown" = "?"))
+table(data_cleaned_viz$education)
+data_cleaned_viz <- data %>%
+mutate(workclass=factor(workclass), education=factor(education), married=factor(married),
+occupation=factor(occupation), relationship=factor(relationship),
+race=factor(race), sex=factor(sex), nativeCountry=factor(nativeCountry),
+income=factor(income)) %>%
+mutate(workclass=fct_recode(data$workclass, "unknown" = "?")) %>%
+mutate(married=fct_collapse(data$married,
+married = c("Married-AF-spouse", "Married-civ-spouse", "Married-spouse-absent"),
+notMarried = c("Divorced", "Never-married", "Separated", "Widowed"))) %>%
+mutate(education=fct_collapse(data$education,
+nonHSgrad = c("10th", "11th", "12th", "1st-4th", "5th-6th", "7th-8th", "9th", "Preschool"),
+HSgrad = "HS-grad",
+someCollege = "Some-college",
+assoc = c("Assoc-acdm", "Assoc-voc"),
+bachelors = "Bachelors",
+masters = "Masters",
+profSchool = "Prof-school",
+doctorate = "Doctorate"))
+data_cleaned_viz <- data_cleaned_viz %>%
+mutate(education=fct_relevel(data_cleaned_viz$education, "nonHSgrad", "HSgrad", "someCollege", "assoc", "bachelors", "masters", "profSchool")) %>%
+mutate(occupation=fct_recode(data_cleaned_viz$occupation, "unknown" = "?")) %>%
+mutate(nativeCountry=fct_recode(data_cleaned_viz$nativeCountry, "unknown" = "?"))
+table(data_cleaned_viz$education)
+data_cleaned_ml <- data_cleaned_viz %>%
+mutate_if(is.factor, as.numeric)
+table(data_cleaned_viz$race)
+table(data_cleaned_viz$sex)
+table(data_cleaned_viz$occupation)
+table(data_cleaned_viz$nativeCountry)
+data_cleaned_viz <- data %>%
+mutate(workclass=factor(workclass), education=factor(education), married=factor(married),
+occupation=factor(occupation), relationship=factor(relationship),
+race=factor(race), sex=factor(sex), nativeCountry=factor(nativeCountry),
+income=factor(income)) %>%
+select(-occupation, -relationship, -nativeCountry) %>%
+mutate(workclass=fct_recode(data$workclass, "unknown" = "?")) %>%
+mutate(married=fct_collapse(data$married,
+married = c("Married-AF-spouse", "Married-civ-spouse", "Married-spouse-absent"),
+notMarried = c("Divorced", "Never-married", "Separated", "Widowed"))) %>%
+mutate(education=fct_collapse(data$education,
+nonHSgrad = c("10th", "11th", "12th", "1st-4th", "5th-6th", "7th-8th", "9th", "Preschool"),
+HSgrad = "HS-grad",
+someCollege = "Some-college",
+assoc = c("Assoc-acdm", "Assoc-voc"),
+bachelors = "Bachelors",
+masters = "Masters",
+profSchool = "Prof-school",
+doctorate = "Doctorate"))
+table(data_cleaned_viz$income)
+setwd("~/Documents/MDS/522/DSCI_522_Income_Prediction")
+library(tidyverse)
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+depth <- read_csv("results/depth_summary.csv")
+feature <- read_csv("results/feature_summary.csv")
+depth %>%
+ggplot(aes(max_depth, accuracy))+
+geom_line()
+depth %>%
+ggplot(aes(max_depth, accuracy))+
+geom_line()+
+geom_point()
+depth %>%
+ggplot(aes(max_depth, accuracy)) +
+geom_line() +
+geom_point() +
+theme_bw()
+depth %>%
+ggplot(aes(max_depth, accuracy)) +
+geom_line() +
+geom_point() +
+theme_bw() +
+labs(x = "Decision Tree Max Depth", y = "Cross Validation Accuracy", title = "Find Optimal Tree Depth")
+depth
+library(tidyverse)
+depth <- read_csv("results/depth_summary.csv")
+feature <- read_csv("results/feature_summary.csv")
+depth %>%
+ggplot(aes(max_depth, accuracy)) +
+geom_line() +
+geom_point() +
+theme_bw() +
+labs(x = "Decision Tree Max Depth", y = "Cross Validation Accuracy", title = "Find Optimal Tree Depth")
+depth
+depth %>%
+ggplot(aes(max_depth, accuracy)) +
+geom_line() +
+geom_point() +
+theme_bw() +
+labs(x = "Decision Tree Max Depth", y = "Cross Validation Accuracy", title = "Find Optimal Tree Depth")
+png(filename = "results/depth_graph.png")
+depth %>%
+ggplot(aes(max_depth, accuracy)) +
+geom_line() +
+geom_point() +
+theme_bw() +
+labs(x = "Decision Tree Max Depth", y = "Cross Validation Accuracy", title = "Find Optimal Tree Depth")
+# png(filename = "results/depth_graph.png")
+depth %>%
+ggplot(aes(max_depth, accuracy)) +
+geom_line() +
+geom_point() +
+theme_bw() +
+labs(x = "Decision Tree Max Depth", y = "Cross Validation Accuracy", title = "Find Optimal Tree Depth")
+# png(filename = "results/depth_graph.png")
+# creating feature importance graph
+feature %>%
+ggplot(aes(variable, feature_importance)) +
+geom_bar() +
+theme_bw()
+# creating feature importance graph
+feature %>%
+ggplot(aes(variable, feature_importance)) +
+geom_col() +
+theme_bw()
+# creating feature importance graph
+feature %>%
+ggplot(aes(variable[-income], feature_importance)) +
+geom_col() +
+theme_bw()
+feature
+# creating feature importance graph
+drop_na(feature) %>%
+ggplot(aes(variable, feature_importance)) +
+geom_col() +
+theme_bw()
+# creating feature importance graph
+drop_na(feature) %>%
+ggplot(aes(fct_reorder(feature$variable, feature$feature_importance), feature_importance)) +
+geom_col() +
+theme_bw()
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+depth <- read_csv("results/depth_summary.csv")
+feature <- read_csv("results/feature_summary.csv")
+# creating max_depth vs accuracy graph
+depth %>%
+ggplot(aes(max_depth, accuracy)) +
+geom_line() +
+geom_point() +
+theme_bw() +
+labs(x = "Decision Tree Max Depth", y = "Cross Validation Accuracy", title = "Find Optimal Tree Depth")
+# png(filename = "results/depth_graph.png")
+# creating feature importance graph
+feature %>%
+ggplot(aes(variable, feature_importance)) +
+geom_col() +
+theme_bw()
+feature
+# creating feature importance graph
+feature %>%
+ggplot(aes(fct_reorder(feature$variable, feature$feature_importance), feature_importance)) +
+geom_col() +
+theme_bw()
+# creating feature importance graph
+feature %>%
+ggplot(aes(feature_importance, fct_reorder(feature$variable, feature$feature_importance))) +
+geom_col() +
+theme_bw()
+fct_reorder(feature$variable, feature$feature_importance),
+# creating feature importance graph
+feature %>%
+ggplot(aes(fct_reorder(feature$variable, feature$feature_importance), feature_importance)) +
+geom_col() +
+theme_bw()
+# creating feature importance graph
+feature %>%
+ggplot(aes(fct_reorder(feature$variable, feature$feature_importance, .desc = TRUE), feature_importance)) +
+geom_col() +
+theme_bw()
+# creating feature importance graph
+feature %>%
+ggplot(aes(feature_importance, fct_reorder(feature$variable, feature$feature_importance, .desc = TRUE))) +
+geom_col() +
+theme_bw()
+# creating feature importance graph
+feature %>%
+ggplot(aes(feature_importance, fct_reorder(feature$variable, feature$feature_importance, .desc = TRUE))) +
+geom_bar() +
+theme_bw()
+# creating feature importance graph
+feature %>%
+ggplot(aes(feature_importance, fct_reorder(feature$variable, feature$feature_importance, .desc = TRUE))) +
+geom_row() +
+theme_bw()
+# creating feature importance graph
+feature %>%
+ggplot(aes(fct_reorder(feature$variable, feature$feature_importance, .desc = TRUE), feature_importance)) +
+geom_col() +
+coord_flip()
+# creating feature importance graph
+feature %>%
+ggplot(aes(fct_reorder(feature$variable, feature$feature_importance, .desc = TRUE), feature_importance)) +
+geom_col() +
+coord_flip()
+# creating feature importance graph
+feature %>%
+ggplot(aes(fct_reorder(feature$variable, feature$feature_importance), feature_importance)) +
+geom_col() +
+coord_flip()
+# creating feature importance graph
+feature %>%
+ggplot(aes(fct_reorder(feature$variable, feature$feature_importance), feature_importance)) +
+geom_col() +
+coord_flip() +
+theme_bw()
+# creating feature importance graph
+feature %>%
+ggplot(aes(fct_reorder(feature$variable, feature$feature_importance), feature_importance)) +
+geom_col() +
+coord_flip()
+# creating max_depth vs accuracy graph
+depth %>%
+ggplot(aes(max_depth, accuracy)) +
+geom_line() +
+geom_point() +
+labs(x = "Decision Tree Max Depth", y = "Cross Validation Accuracy", title = "Find Optimal Tree Depth")
+# creating feature importance graph
+feature %>%
+ggplot(aes(fct_reorder(feature$variable, feature$feature_importance), feature_importance)) +
+geom_col() +
+coord_flip() +
+labs(x = "Decision Tree Feature Importance", y = "Variables", title = "Feature Importances for Decision Tree")
+# creating feature importance graph
+feature %>%
+ggplot(aes(fct_reorder(feature$variable, feature$feature_importance), feature_importance)) +
+geom_col() +
+coord_flip() +
+labs(x = "Variables", y = "Decision Tree Feature Importance", title = "Feature Importances for Decision Tree")
+# creating max_depth vs accuracy graph
+depth %>%
+ggplot(aes(max_depth, accuracy)) +
+geom_line() +
+geom_point() +
+labs(x = "Decision Tree Max Depth", y = "Cross Validation Accuracy", title = "Find Optimal Tree Depth")
+ggsave(filename = "results/depth_graph.png", plot = last_plot())
+# creating feature importance graph
+feature %>%
+ggplot(aes(fct_reorder(feature$variable, feature$feature_importance), feature_importance)) +
+geom_col() +
+coord_flip() +
+labs(x = "Variables", y = "Decision Tree Feature Importance", title = "Feature Importances for Decision Tree")
+ggsave(filename = "results/depth_graph.png", plot = last_plot())
+>>>>>>> upstream/master
