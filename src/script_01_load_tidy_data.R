@@ -1,15 +1,14 @@
 #! /usr/bin/env Rscript 
 
-# tidy_data.R
-# Olivia Lin, Mani Kohli Nov 22 2016
-#
+# script_01_load_tidy_data.R 
+# Olivia Lin, Mani Kohli Nov 22 2018
+
 # This script takes in the original data set and returns a cleaned data set for our project.
 # This script should be run under the root folder.
 
-
-# Usage: Rscript src/script_01_load_tidy_data.R 
+# Usage: Rscript src/script_01_load_tidy_data.R arg1 arg2 arg3
+# Description: arg1 = input data file, arg2 = output data file for visualization, arg3 = output data file for machine learning
 # Example: Rscript src/script_01_load_tidy_data.R https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data data/tidy_data_viz.csv data/tidy_data_ml.csv
-
 
 # import libraries/packages
 library(tidyverse)
