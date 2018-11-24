@@ -75,7 +75,7 @@ viz_data <- read_csv(input_file)
 #  labs(title="Income Distribution", x="Income", y="Frequency")
 
 #save following plot
-png(file=output_file_viz_01)
+png(file=output_file_viz_01, width = 5, height = 5, units = "in", res = 600)
 
 #Correlation of Quantitative Variables
 col1 <- colorRampPalette(c("#7F0000", "red", "#FF7F00", "yellow", "white",
@@ -83,13 +83,14 @@ col1 <- colorRampPalette(c("#7F0000", "red", "#FF7F00", "yellow", "white",
 numeric_var <- sapply(viz_data, is.numeric)
 corr_matrix <- cor(viz_data[, numeric_var])
 corrplot(corr_matrix, method = "ellipse", col = col1(100),
-         main="Correlation of Quantitative Variables")
+         main="Correlation of Quantitative Variables",
+         mar = c(0,0,2,0))
 
 dev.off()
 
 #save file
 #ggsave(output_file_viz_01, plot = last_plot(), width = 7.29, height = 4.51, units = "in")
-png(file=output_file_viz_02)
+png(file=output_file_viz_02, width = 7.29, height = 4.51, units = "in", res = 600)
 
 #Correlation of numerical variables and income 
 par(mfrow=c(2,3))  ## Arrange plots 
@@ -107,7 +108,7 @@ dev.off()
 
 #save image
 #ggsave(output_file_viz_02, plot = last_plot(), width = 7.29, height = 4.51, units = "in")
-png(file=output_file_viz_03)
+png(file=output_file_viz_03, width = 7.29, height = 6, units = "in", res = 600)
 
 
 #Correlation of categorical variables and income 

@@ -17,7 +17,13 @@ Data Set and Wrangling
 
 The public data set for our project is <https://archive.ics.uci.edu/ml/datasets/Adult> from UCI machine learning repository. The data we will use for this project is from the 1994 US Census Database.
 
-Based on our initial analysis of the data set, we omitted various features for the following reasons: - Workclass: We felt this attribute did not offered meaningful data, the defined categories were not descriptive and too limited. - Fnlwgt: This attribute was not useful for our purpose and was highly skewed with zeros. - Occupation: We felt this attribute did not offered meaningful data, the defined categories were not descriptive and too limited. - Relationship: We felt this attribute did not offered meaningful data, the defined categories were not descriptive and too limited and partially repetitive with ‘marital-status’. - native-country: This attribute was not useful for our purpose.
+Based on our initial analysis of the data set, we omitted various features for the following reasons:
+
+-   Workclass: We felt this attribute did not offered meaningful data, the defined categories were not descriptive and too limited.
+-   Fnlwgt: This attribute was not useful for our purpose and was highly skewed with zeros.
+-   Occupation: We felt this attribute did not offered meaningful data, the defined categories were not descriptive and too limited.
+-   Relationship: We felt this attribute did not offered meaningful data, the defined categories were not descriptive and too limited and partially repetitive with ‘marital-status’.
+-   native-country: This attribute was not useful for our purpose.
 
 Our final data set consisted of 9 attributes, 5 were numerical and 4 were categorical.
 
@@ -34,10 +40,16 @@ Our final data set consisted of 9 attributes, 5 were numerical and 4 were catego
 | hrPerWeek    | The hours (continuous) an individual has reported to work per week                                                                                                                                               |
 | income       | Whether or not an individual makes more than $50,000 annually (&lt;=50k, &gt;50k)                                                                                                                                |
 
-We created 2 separate data sets. 1 for exploratory data analysis which used our defined string levels for categorical variables. 1 for our machine learning model which we converted the string levels to numeric levels.
+We created two separate data sets for cleaned version. One for exploratory data analysis which used our defined string levels for categorical variables; one for our machine learning model which we converted the string levels to numeric levels.
 
 Exploratory Data Analysis
 -------------------------
+
+![](../results/data_viz_01.png%20=250x250)
+
+![](../results/data_viz_02.png%20=400x300)
+
+![](../results/data_viz_03.png%20=400x300)
 
 Methodology
 -----------
