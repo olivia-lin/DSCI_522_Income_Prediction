@@ -9,7 +9,7 @@
 #
 # Usage: Rscript src/data_cleaned_viz arg1 arg2
 # arg1 = input data file, arg2 = output visualizations file
-# Example: Rscript src/script_02_visualizations.R data/tidy_data_viz.csv results/data_viz_01.png data_viz_02.png data_viz_03.png
+# Example: Rscript src/script_02_visualizations.R data/tidy_data_viz.csv results/data_viz_01.png results/data_viz_02.png results/data_viz_03.png
 
 # import libraries/packages
 library(tidyverse)
