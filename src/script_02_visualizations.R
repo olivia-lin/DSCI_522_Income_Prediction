@@ -75,7 +75,7 @@ base_viz +
   labs(title="Income Distribution", x="Income", y="Frequency")
 
 #save following plot
-png(output_file_viz_01)
+png(file=output_file_viz_01)
 
 #Correlation of Quantitative Variables
 col1 <- colorRampPalette(c("#7F0000", "red", "#FF7F00", "yellow", "white",
@@ -89,7 +89,7 @@ dev.off()
 
 #save file
 #ggsave(output_file_viz_01, plot = last_plot(), width = 7.29, height = 4.51, units = "in")
-png(output_file_viz_02)
+png(file=output_file_viz_02)
 
 #Correlation of numerical variables and income 
 par(mfrow=c(2,3))  ## Arrange plots 
@@ -107,7 +107,8 @@ dev.off()
 
 #save image
 #ggsave(output_file_viz_02, plot = last_plot(), width = 7.29, height = 4.51, units = "in")
-png(output_file_viz_03)
+png(file=output_file_viz_03)
+
 
 #Correlation of categorical variables and income 
 par(mfrow=c(2,3))
