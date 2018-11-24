@@ -83,6 +83,8 @@ To answer our proposal question, we used decision tree classifier from `scikit-l
 -	Predict income level using testing set
 - Report the accuracy of this model 
 
+We choose to use this decision tree model because we wanted to know which specific features were used to classify our target value. In addition, this gave us the rules that helped predict our target variable.
+
 ## Results
 
 ![](../results/depth_graph.png)

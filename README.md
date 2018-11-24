@@ -8,8 +8,18 @@
 [Mani Kohli](https://github.com/ksm45)
 
 
+## Introduction
+There are huge disparities in salary amongst the population today. Why does someone receive a higher salary than the next person? There could be many, many factors as to why.  How do we narrow down these factors?  One approach would be to analyze collected data from censuses which would give us pre-defined attributes, including salaries. 
+
+Our research proposal for this project is to determine what are the strongest predictors (attributes) would be to determine a salary greater than $50,000.  
+
+Our goal is to build a model on census data for a specific year with the hopes that it could be applied on other years as well.
+
 ## Dataset
 The public data set for our project is https://archive.ics.uci.edu/ml/datasets/Adult from UCI machine learning repository. The data for this project is from the 1994 US Census Database. 
+
+**Dataset Attributes**
+"age", "workclass", "fnlwgt", "education", "educationNum", "married", "occupation", "relationship", "race",  "sex", "capitalGain", "capitalLoss", "hrPerWeek", "nativeCountry", "income"
 
 Script to load the dataset: [R script](https://github.com/UBC-MDS/DSCI_552_Income_Prediction/tree/master/scripts)  
 Dataset file: [Data](https://github.com/UBC-MDS/DSCI_522_Income_Prediction/tree/master/data)  
@@ -25,11 +35,9 @@ Our research proposal for this project is to determine, *what are the strongest 
 - use a decision tree algorithm on the training set
 - apply the resulting model to the testing set
 
+We choose to use a decision tree model because we wanted to know which specific features were used to classify our target value. In addition, this gave us the rules that helped predict our target variable.
+
 ## Summary
 - compare the testing statistics to the training statistics (ex. accuracy) in a table or visualization such as a tree
 - return to the decision trees to determine the strongest attributes leading to a salary greater than $50,000.  
-  
-  
-## Directory  Structure  
 
-![alt text][dir.png]
