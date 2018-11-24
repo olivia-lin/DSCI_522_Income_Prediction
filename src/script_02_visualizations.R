@@ -9,8 +9,7 @@
 #
 # Usage: Rscript src/data_cleaned_viz arg1 arg2
 # arg1 = input data file, arg2 = output visualizations file
-# Example: Rscript src/script_02_visualizations.R data/tidy_data_viz.csv reports/data_viz.png
-
+# Example: Rscript src/script_02_visualizations.R data/tidy_data_viz.csv results/data_viz_01.png data_viz_02.png data_viz_03.png
 
 # import libraries/packages
 library(tidyverse)
@@ -20,7 +19,9 @@ library(corrplot)
 # parse/define command line arguments here
 args <- commandArgs(trailingOnly = TRUE)
 input_file <- args[1]
-output_file_viz <- args[2]
+output_file_viz_01 <- args[2]
+output_file_viz_02 <- args[3]
+output_file_viz_03 <- args[4]
 
 #viz_data <- read_csv("data/tidy_data_viz.csv")
 #Read in data file
@@ -82,7 +83,7 @@ corrplot(corr_matrix, method = "ellipse", col = col1(100),
          main="Correlation of Quantitative Variables")
 
 #save file
-ggsave(output_file_viz, plot = last_plot())
+ggsave(output_file_viz_01, plot = last_plot(), width = 7.29, height = 4.51, units = "in")
 
 #Correlation of numerical variables and income 
 par(mfrow=c(2,3))  ## Arrange plots 
@@ -97,7 +98,7 @@ boxplot(viz_data$hrPerWeek~viz_data$income, main="Hours Worked Per Week vs Incom
         xlab="Hours Per Week", ylab="Income")
 
 #save image
-ggsave(output_file_viz, plot = last_plot())
+ggsave(output_file_viz_02, plot = last_plot(), width = 7.29, height = 4.51, units = "in")
 
 #Correlation of categorical variables and income 
 par(mfrow=c(2,3))
@@ -110,4 +111,4 @@ plot(table(viz_data$income, viz_data$sex), main="Sex vs. Income")
 par(las=0)
 
 #save image
-ggsave(output_file_viz, plot = last_plot())
+ggsave(output_file_viz_03, plot = last_plot(), width = 7.29, height = 4.51, units = "in")
