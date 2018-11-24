@@ -7,7 +7,7 @@
 # data for our project.
 # This script should be run under the root folder.
 #
-# Usage: Rscript src/data_cleaned_viz arg1 arg2
+# Usage: Rscript src/data_cleaned_viz arg1 arg2 arg3 arg4
 # arg1 = input data file, arg2 = output visualizations file
 # Example: Rscript src/script_02_visualizations.R data/tidy_data_viz.csv results/data_viz_01.png results/data_viz_02.png results/data_viz_03.png
 
@@ -30,7 +30,7 @@ viz_data <- read_csv(input_file)
 # Visualizing individual attributes, not being saved to files. 
 # Meant for data explorations for further plots below
 base_viz <- viz_data %>% 
-  ggplot()
+ ggplot()
 
 base_viz + 
   geom_histogram(aes(x=age), bins=20) +
@@ -74,6 +74,9 @@ base_viz +
   geom_bar(aes(x=income)) +
   labs(title="Income Distribution", x="Income", y="Frequency")
 
+#save following plot
+png(file=output_file_viz_01)
+
 #Correlation of Quantitative Variables
 col1 <- colorRampPalette(c("#7F0000", "red", "#FF7F00", "yellow", "white",
                            "cyan", "#007FFF", "blue", "#00007F"))
@@ -82,8 +85,11 @@ corr_matrix <- cor(viz_data[, numeric_var])
 corrplot(corr_matrix, method = "ellipse", col = col1(100),
          main="Correlation of Quantitative Variables")
 
+dev.off()
+
 #save file
-ggsave(output_file_viz_01, plot = last_plot(), width = 7.29, height = 4.51, units = "in")
+#ggsave(output_file_viz_01, plot = last_plot(), width = 7.29, height = 4.51, units = "in")
+png(file=output_file_viz_02)
 
 #Correlation of numerical variables and income 
 par(mfrow=c(2,3))  ## Arrange plots 
@@ -97,8 +103,12 @@ boxplot(viz_data$capitalLoss~viz_data$income, main="Capital Loss vs Income",
 boxplot(viz_data$hrPerWeek~viz_data$income, main="Hours Worked Per Week vs Income", 
         xlab="Hours Per Week", ylab="Income")
 
+dev.off()
+
 #save image
-ggsave(output_file_viz_02, plot = last_plot(), width = 7.29, height = 4.51, units = "in")
+#ggsave(output_file_viz_02, plot = last_plot(), width = 7.29, height = 4.51, units = "in")
+png(file=output_file_viz_03)
+
 
 #Correlation of categorical variables and income 
 par(mfrow=c(2,3))
@@ -110,5 +120,6 @@ plot(table(viz_data$income, viz_data$race), main="Race vs. Income")
 plot(table(viz_data$income, viz_data$sex), main="Sex vs. Income")
 par(las=0)
 
+dev.off()
 #save image
-ggsave(output_file_viz_03, plot = last_plot(), width = 7.29, height = 4.51, units = "in")
+#ggsave(output_file_viz_03, plot = last_plot(), width = 7.29, height = 4.51, units = "in")
