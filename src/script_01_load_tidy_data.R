@@ -41,53 +41,34 @@ data_cleaned_viz <- data %>%
          occupation=factor(occupation), relationship=factor(relationship), 
          race=factor(race), sex=factor(sex), nativeCountry=factor(nativeCountry), 
          income=factor(income)) %>% 
-  mutate(workclass=fct_recode(data$workclass, "unknown" = "?")) %>% 
+  select(-occupation, -relationship, -nativeCountry, -workclass) %>% 
   mutate(married=fct_collapse(data$married,
                               married = c("Married-AF-spouse", "Married-civ-spouse", "Married-spouse-absent"),
                               notMarried = c("Divorced", "Never-married", "Separated", "Widowed"))) %>% 
   mutate(education=fct_collapse(data$education,
                                 nonHSgrad = c("10th", "11th", "12th", "1st-4th", "5th-6th", "7th-8th", "9th", "Preschool"),
-                                assoc = c("Assoc-acdm", "Assoc-voc"),
                                 HSgrad = "HS-grad",
+                                someCollege = "Some-college",
+                                assoc = c("Assoc-acdm", "Assoc-voc"),
+                                bachelors = "Bachelors",
+                                masters = "Masters",
                                 profSchool = "Prof-school",
-                                someCollege = "Some-college")) %>% 
-  mutate(occupation=fct_recode(data$occupation, "unknown" = "?")) %>% 
-  mutate(nativeCountry=fct_recode(data$nativeCountry, "unknown" = "?"))
-
-
-data_cleaned_ml <- data %>% 
-  mutate(workclass=factor(workclass), education=factor(education), married=factor(married),
-         occupation=factor(occupation), relationship=factor(relationship), 
-         race=factor(race), sex=factor(sex), nativeCountry=factor(nativeCountry), 
-         income=factor(income)) %>% 
-  mutate_if(is.factor, as.numeric)
+                                doctorate = "Doctorate"))
   
-
-#  select(-workclass, -occupation, -relationship, -nativeCountry, -educationNum) %>% 
-#  mutate(married = fct_collapse(data$married,
-#                              married = c("Married-AF-spouse", "Married-civ-spouse", "Married-spouse-absent"),
-#                              notMarried = c("Divorced", "Never-married", "Separated", "Widowed"))) %>% 
-#  mutate(education = fct_collapse(data$education,
-#                                0 = c("10th", "11th", "12th", "1st-4th", "5th-6th", "7th-8th", "9th", "Preschool"),
-#                                1 = "HS-grad",
-#                                2 = "Some-college",
-#                                3 = "Bachelors",
-#                                4 = c("Assoc-acdm", "Assoc-voc"),
-#                                5 = "Masters",
-#                                6 = "Doctorate",
-#                                7 = "Prof-school"))) %>% 
-#  mutate(race = fct_recode(data$race, 
-#                         0 = "Amer-Indian-Eskimo", 1 = "Asian-Pac-Islander", 2 = "Black", 3 = "Other", 4 = "White")) %>% 
-#  mutate(sex = fct_recode(data$sex), 0 = "Female", 1 = "Male")
-
+data_cleaned_viz <- data_cleaned_viz %>% 
+  mutate(education=fct_relevel(data_cleaned_viz$education, "nonHSgrad", "HSgrad", "someCollege", "assoc", "bachelors", "masters", "profSchool"))
 
 #' Note
-#' For variable `married`, 1 means married and 0 means not married
-#' For variable `education`, 0 means not high school graduate, 1 means high school graduate, 2 means some college, 
-#'                           3 means bachelor's degree, 4 means associate, 5 means master's degree, 6 means doctorate, 7 means prof school.
-#' For variable `race`, 0 means Amer-Indian-Eskimo", 1 means Asian-Pac-Islander, 2 means Black, 3 means Other, 4 means White.
-#' For variable `sex`, 0 means female and 1 means male.
-   
+#' For variable `married`, 1 means not married and 2 means married
+#' For variable `education`, 1 means not high school graduate, 2 means high school graduate, 3 means some college, 
+#'                           4 means associate, 5 means bachelor's degree, 6 means master's degree, 7 means prof school, and 8 means doctorate,.
+#' For variable `race`, 1 means Amer-Indian-Eskimo, 2 means Asian-Pac-Islander, 3 means Black, 4 means Other, 5 means White.
+#' For variable `sex`, 1 means female and 2 means male.
+#' For variable `income`, 1 means <=50K and 2 means >50K.
+
+data_cleaned_ml <- data_cleaned_viz %>% 
+  mutate_if(is.factor, as.numeric)
+  
 
 #Write output file
 write_csv(data_cleaned_viz, output_file_viz)
