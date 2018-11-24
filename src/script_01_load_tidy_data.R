@@ -41,7 +41,7 @@ data_cleaned_viz <- data %>%
          occupation=factor(occupation), relationship=factor(relationship), 
          race=factor(race), sex=factor(sex), nativeCountry=factor(nativeCountry), 
          income=factor(income)) %>% 
-  select(-occupation, -relationship, -nativeCountry, -workclass) %>% 
+  select(-occupation, -relationship, -nativeCountry, -workclass, -fnlwgt) %>% 
   mutate(married=fct_collapse(data$married,
                               married = c("Married-AF-spouse", "Married-civ-spouse", "Married-spouse-absent"),
                               notMarried = c("Divorced", "Never-married", "Separated", "Widowed"))) %>% 
