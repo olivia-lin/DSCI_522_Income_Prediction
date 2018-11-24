@@ -108,15 +108,14 @@ dev.off()
 
 #save image
 #ggsave(output_file_viz_02, plot = last_plot(), width = 7.29, height = 4.51, units = "in")
-png(file=output_file_viz_03, width = 7.29, height = 6, units = "in", res = 600)
+png(file=output_file_viz_03, width = 7.29, height = 7, units = "in", res = 600)
 
 
 #Correlation of categorical variables and income 
-par(mfrow=c(2,3))
+par(mfrow=c(2,2))
 par(las=1)  ## horizontal axis labels
 plot(table(viz_data$income, viz_data$education), main="Education vs. Income")
 plot(table(viz_data$income, viz_data$married), main="Marital Status vs. Income")
-plot(table(viz_data$income, viz_data$married), main="Relationship vs. Income")
 plot(table(viz_data$income, viz_data$race), main="Race vs. Income")
 plot(table(viz_data$income, viz_data$sex), main="Sex vs. Income")
 par(las=0)

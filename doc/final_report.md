@@ -45,11 +45,11 @@ We created two separate data sets for cleaned version. One for exploratory data 
 Exploratory Data Analysis
 -------------------------
 
-![](../results/data_viz_01.png%20=250x250)
+![](../results/data_viz_01.png)
 
-![](../results/data_viz_02.png%20=400x300)
+![](../results/data_viz_02.png)
 
-![](../results/data_viz_03.png%20=400x300)
+![](../results/data_viz_03.png)
 
 Methodology
 -----------
