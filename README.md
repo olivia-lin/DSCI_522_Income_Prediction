@@ -42,6 +42,9 @@ We choose to use a decision tree model because we wanted to know which specific 
 ## Final Report
 Our final report is [here](https://github.com/UBC-MDS/DSCI_522_Income_Prediction/blob/master/doc/final_report.md).
 
+## Scripts
+Our scripts can be found [here](https://github.com/UBC-MDS/DSCI_522_Income_Prediction/tree/master/src). For usage of these scripts, please reference the `Usage` description in the comment section of each script. These scripts should be run under the root directory of our project. To run each script, copy the code after `Example:`, in the comment section at the beginning of each script, into terminal.
+
 ## Dependencies
 
 **R Packages:** 
