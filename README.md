@@ -21,7 +21,7 @@ The public data set for our project is https://archive.ics.uci.edu/ml/datasets/A
 **Dataset Attributes**
 "age", "workclass", "fnlwgt", "education", "educationNum", "married", "occupation", "relationship", "race",  "sex", "capitalGain", "capitalLoss", "hrPerWeek", "nativeCountry", "income"
 
-Script to load the dataset: [R script](https://github.com/UBC-MDS/DSCI_552_Income_Prediction/tree/master/scripts)  
+Script to load the dataset: [R script](hhttps://github.com/UBC-MDS/DSCI_522_Income_Prediction/tree/master/src)  
 Dataset file: [Data](https://github.com/UBC-MDS/DSCI_522_Income_Prediction/tree/master/data)  
 
 ## Research Question
