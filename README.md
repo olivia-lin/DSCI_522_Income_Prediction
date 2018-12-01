@@ -41,3 +41,15 @@ We choose to use a decision tree model because we wanted to know which specific 
 - compare the testing statistics to the training statistics (ex. accuracy) in a table or visualization such as a tree
 - return to the decision trees to determine the strongest attributes leading to a salary greater than $50,000.  
 
+## Dependencies
+
+**R Packages:** 
+
+- tidyverse (v1.2.1)
+- ggplot2 (v3.0.0)
+
+**Python Packages:**
+- pandas (v0.23.0)
+- sklearn (v0.19.1)
+- matplotlib (v2.2.2)
+- argparse (v3.2)
