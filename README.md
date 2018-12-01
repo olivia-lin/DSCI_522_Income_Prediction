@@ -53,3 +53,9 @@ We choose to use a decision tree model because we wanted to know which specific 
 - sklearn (v0.19.1)
 - matplotlib (v2.2.2)
 - argparse (v3.2)
+
+## Release Versions  
+
+Version 0.0     [v0.0](https://github.com/UBC-MDS/DSCI_522_Income_Prediction/tree/v0.0)  
+Version 1.0.1   [v1.0.1](https://github.com/UBC-MDS/DSCI_522_Income_Prediction/tree/v1.0.1)  
+Version 2.0.0   [v2.0.0](https://github.com/UBC-MDS/DSCI_522_Income_Prediction/tree/v.2.0.0)  
