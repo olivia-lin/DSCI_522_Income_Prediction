@@ -1,5 +1,3 @@
-# DSCI_522_Income_Prediction
-
 # Proposal
 
 ## Team Members
@@ -40,6 +38,9 @@ We choose to use a decision tree model because we wanted to know which specific 
 ## Summary
 - compare the testing statistics to the training statistics (ex. accuracy) in a table or visualization such as a tree
 - return to the decision trees to determine the strongest attributes leading to a salary greater than $50,000.  
+
+## Final Report
+Our final report is [here](https://github.com/UBC-MDS/DSCI_522_Income_Prediction/blob/master/doc/final_report.md).
 
 ## Dependencies
 
