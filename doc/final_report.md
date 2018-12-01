@@ -45,11 +45,27 @@ We created two separate data sets for cleaned version. One for exploratory data 
 Exploratory Data Analysis
 -------------------------
 
-![](../results/data_viz_01.png)
+Although our initial data exploration included analyzing visualizations of distributions for all the variables separately, they were not used in our final report (for more information please see script02\_visualizations.R). They did however provide us with information which led to the plots below.
 
-![](../results/data_viz_02.png)
+<img src="../results/data_viz_01.png" width="50%" style="display: block; margin: auto;" />
+<center>
+Plot 1: Correlation of Quantitative Variables
+</center>
+Plot 1 provides us with correlation information between each quantitative variable amongst each other. This helped us with visualizing how correlated these variables were to each other.
 
-![](../results/data_viz_03.png)
+<img src="../results/data_viz_02.png" width="80%" style="display: block; margin: auto;" />
+<center>
+Plot 2: Quantitative variables vs our target variable
+</center>
+Plot 2 gives us a 5 number summary description between each quantitative variable and the target variable.
+
+<img src="../results/data_viz_03.png" width="70%" style="display: block; margin: auto;" />
+<center>
+Plot 3: Categorical variables vs our target variable
+</center>
+Plot 3 shows us the relationships between each categorical variable and the target variable.
+
+From these plots we can see marriage and education have stronger relationships with our target income variable.
 
 Methodology
 -----------
@@ -59,19 +75,28 @@ To answer our proposal question, we used decision tree classifier from `scikit-l
 -   Separated cleaned data into features `X` and target `y` (income level)
 -   Split the data set into training and testing sets (we are using 80% for training and 20% for testing)
 -   Perform 5-fold cross validation on the training set to find the optimal value (range from 1 to 20) of max depth parameter for the decision tree in regard of accuracy
--   Build the decision tree model using the optimal max depth parameter as we find using cross validation accuracy
--   Predict income level using testing set and report the accuracy of this model
+-   Build the decision tree model using the optimal max depth parameter found using cross validation accuracy
+-   Predict income level using testing set
+-   Report the accuracy of this model
+
+We choose to use this decision tree model because we wanted to know which specific features were used to classify our target value. In addition, this gave us the rules that helped predict our target variable.
 
 Results
 -------
 
-![](../results/depth_graph.png)
-
+<img src="../results/depth_graph.png" width="55%" style="display: block; margin: auto;" />
+<center>
+Plot 4: Decision Tree Depth vs Accuracy
+</center>
 The optimal max depth we found is 10 steps. The accuracy of our training set is 86.48% and the accuracy of our testing set is 85.66% which shows that our decision tree does a decent job predicting the income level.
 
-![](../results/feature_graph.png)
-
+<img src="../results/feature_graph.png" width="60%" style="display: block; margin: auto;" />
+<center>
+Plot 5: Feature Importances for Decision Tree
+</center>
 To answer our proposal question, we looked at feature importances of the decision tree. We found that the most influential factors of the income level are marriage status, capital gain, and education level. The feature importance is about 40% for marriage status and 20% for capital gain and education level.
+
+In conclusion, the strongest predictors for gaining a higher income are individuals who are married, have some sort of capital gain and completed some level of education.
 
 Limitations
 -----------
@@ -79,8 +104,8 @@ Limitations
 -   More data required for stronger predictions
 -   Incomplete data due to missing values
 -   Puzzling data wrangling to original data (for the feature education, the original data set breaks people didn’t graduate from high school into groups such as 10th and 11th grade, we combine all people didn’t graduate from high school into one group)
--   Limited values for categorical variables (race only has five categories)
--   Data collected from 1994 may be different from data collected more recently (more categories in sex)
+-   Limited levels for categorical variables (race only has five categories)
+-   Data collected from 1994 may be different from data collected more recently (eg more categories for sex)
 
 Future Direction
 ----------------
@@ -91,3 +116,9 @@ Future Direction
 
 References
 ----------
+
+<https://github.ubc.ca/mds-2018-19/DSCI_571_sup-learn-1_students>
+<https://archive.ics.uci.edu/ml/datasets/Adult>
+<https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.names>
+<http://individual.utoronto.ca/zabet/census-income.html>
+<http://jmcauley.ucsd.edu/cse190/projects/sp15/048.pdf>
