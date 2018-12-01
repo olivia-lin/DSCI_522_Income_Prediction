@@ -2,7 +2,7 @@
 title: "Income Prediction Using Decision Tree"
 author: "Olivia Lin, Mani Kohli"
 date: 'November 24, 2018'
-output: pdf_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
