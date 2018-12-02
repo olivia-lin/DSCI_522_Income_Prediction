@@ -17,7 +17,6 @@ Our research proposal for this project is to determine what are the strongest pr
 
 Our goal is to build a model on census data for a specific year with the hopes that it could be applied on other years as well.
 
-
 ## Data Set and Wrangling
 The public data set for our project is https://archive.ics.uci.edu/ml/datasets/Adult from UCI machine learning repository. The data we will use for this project is from the 1994 US Census Database. 
 
@@ -119,17 +118,11 @@ In conclusion, the strongest predictors for gaining a higher income are individu
 
 ## Limitations
 
-- More data required for stronger predictions
-- Incomplete data due to missing values
-- Puzzling data wrangling to original data (for the feature education, the original data set breaks people didn’t graduate from high school into groups such as 10th and 11th grade, we combine all people didn’t graduate from high school into one group)
-- Limited levels for categorical variables (race only has five categories)
-- Data collected from 1994 may be different from data collected more recently (eg more categories for sex)
+Firstly, we need more data required for stronger predictions. We also have incomplete data due to missing values which might affect our results.Secondly, there is puzzling data wrangling to original data. For example, for the feature education, the original data set breaks people didn’t graduate from high school into groups such as 10th and 11th grade. In this project, we combine all people didn’t graduate from high school into one group. Thirdly, there are limited levels for categorical variables, such as only five categories for race. Lastly, the dataset we are using for this project was collected from 1994, which may be different from data collected more recently, such as more categories for sex. A more recent dataset could make readers feel more related.
 
 ## Future Direction
 
--	Convert categorical variables to numeric variables in a more meaningful way
--	Try a different classification approach, such as k-NN, and compare results
--	Use a more recent data set
+First, we want to convert categorical variables to numeric variables in a more meaningful way. Second, we would like to try different classification approaches, such as k-NN, and compare results with decision tree. Last but not least, we want to do this analysis on a more recent dataset.
 
 ## References
   
