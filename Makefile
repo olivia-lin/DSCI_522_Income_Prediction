@@ -23,8 +23,8 @@ results/data_viz_01.png results/data_viz_02.png results/data_viz_03.png : data/t
 	Rscript src/script_02_visualizations.R data/tidy_data_viz.csv results/data_viz_01.png results/data_viz_02.png results/data_viz_03.png
 
 # binary tree: run script_03_machine_learning.py and output summary tables for machine learning
-results/depth_summary.csv results/feature_summary.csv : data/tidy_data_ml.csv src/script_03_machine_learning.py
-	python src/script_03_machine_learning.py data/tidy_data_ml.csv results/depth_summary.csv results/feature_summary.csv
+results/depth_summary.csv results/feature_summary.csv results/tree_model.png: data/tidy_data_ml.csv src/script_03_machine_learning.py
+	python src/script_03_machine_learning.py data/tidy_data_ml.csv results/depth_summary.csv results/feature_summary.csv results/tree_model
 
 # create summary: run script_04_create_summary_graph.R and output summary plots from summary tables
 results/depth_graph.png results/feature_graph.png : results/depth_summary.csv results/feature_summary.csv src/script_04_create_summary_graph.R
@@ -47,3 +47,4 @@ clean :
 	rm -f results/feature_graph.png
 	rm -f results/depth_graph.png
 	rm -f doc/final_report.html
+	rm -f results/feature_graph.png
