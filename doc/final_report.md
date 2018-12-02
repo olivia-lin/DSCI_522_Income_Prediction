@@ -49,21 +49,21 @@ Although our initial data exploration included analyzing visualizations of distr
 
 <img src="../results/data_viz_01.png" width="50%" style="display: block; margin: auto;" />
 <center>
-Plot 1: Correlation of Quantitative Variables
+Figure 1: Correlation of Quantitative Variables
 </center>
-Plot 1 provides us with correlation information between each quantitative variable amongst each other. This helped us with visualizing how correlated these variables were to each other.
+Figure 1 provides us with correlation information between each quantitative variable amongst each other. This helped us with visualizing how correlated these variables were to each other.
 
 <img src="../results/data_viz_02.png" width="80%" style="display: block; margin: auto;" />
 <center>
-Plot 2: Quantitative variables vs our target variable
+Figure 2: Quantitative variables vs our target variable
 </center>
-Plot 2 gives us a 5 number summary description between each quantitative variable and the target variable.
+Figure 2 gives us a 5 number summary description between each quantitative variable and the target variable.
 
 <img src="../results/data_viz_03.png" width="70%" style="display: block; margin: auto;" />
 <center>
-Plot 3: Categorical variables vs our target variable
+Figure 3: Categorical variables vs our target variable
 </center>
-Plot 3 shows us the relationships between each categorical variable and the target variable.
+Figure 3 shows us the relationships between each categorical variable and the target variable.
 
 From these plots we can see marriage and education have stronger relationships with our target income variable.
 
@@ -86,17 +86,21 @@ Results
 
 <img src="../results/depth_graph.png" width="55%" style="display: block; margin: auto;" />
 <center>
-Plot 4: Decision Tree Depth vs Accuracy
+Figure 4: Decision Tree Depth vs Accuracy
 </center>
 The optimal max depth we found is 10 steps. The accuracy of our training set is 86.48% and the accuracy of our testing set is 85.66% which shows that our decision tree does a decent job predicting the income level.
 
 <img src="../results/feature_graph.png" width="60%" style="display: block; margin: auto;" />
 <center>
-Plot 5: Feature Importances for Decision Tree
+Figure 5: Feature Importances for Decision Tree
 </center>
 To answer our proposal question, we looked at feature importances of the decision tree. We found that the most influential factors of the income level are marriage status, capital gain, and education level. The feature importance is about 40% for marriage status and 20% for capital gain and education level.
 
 <img src="../results/tree_model.png" width="100%" style="display: block; margin: auto;" />
+<center>
+Figure 6: Decision Tree Model
+</center>
+Figture 6 shows the decision tree model. For the purpose of readable graph, we picked the three most important features, which are marriage status, capital gain, and education level. According to the Figure 4, even though tree with depth 10 has the highest accuracy, we decided to use depth 6 because ploting tree with depth 10 is less readable. In addtion, the accuracy score for depth 10 and 6 are close.
 
 In conclusion, the strongest predictors for gaining a higher income are individuals who are married, have some sort of capital gain and completed some level of education.
 
