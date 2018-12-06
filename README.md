@@ -27,9 +27,12 @@ Our research proposal for this project is to determine, *what are the strongest 
 
 ## Plan
 
-WorkFlow for our project:
+WorkFlow for our project:  
+  
+  
 ![WorkFlow](process.png)  
-
+  
+  
 - load the dataset into R 
 - explore the dataset
 - data wrangling to clean and prepare the data according to our research project
@@ -73,3 +76,6 @@ Our scripts can be found [here](https://github.com/UBC-MDS/DSCI_522_Income_Predi
 | Version 2.0.0 | [v2.0.0](https://github.com/UBC-MDS/DSCI_522_Income_Prediction/tree/v.2.0.0) | 
 |     |         |
 | Version 2.1.0 | [v2.1.0](https://github.com/UBC-MDS/DSCI_522_Income_Prediction/tree/v.2.1.0) |  
+|     |         |
+| Version 2.1.0 | [v2.2.0](https://github.com/UBC-MDS/DSCI_522_Income_Prediction/tree/v.2.2.0) | 
+

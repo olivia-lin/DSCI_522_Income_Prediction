@@ -95,9 +95,12 @@ The optimal max depth we found is 10 steps. The accuracy of our training set is 
 Figure 5: Feature Importances for Decision Tree
 </center>
 To answer our proposal question, we looked at feature importances of the decision tree. We found that the most influential factors of the income level are marriage status, capital gain, and education level. The feature importance is about 40% for marriage status and 20% for capital gain and education level.
-
+  
+  
 <img src="../results/tree_model.png" width="100%" style="display: block; margin: auto;" />
-<center>
+<center>  
+      
+      
 Figure 6: Decision Tree Model
 </center>
 Figture 6 shows the decision tree model. For the purpose of readable graph, we picked the three most important features, which are marriage status, capital gain, and education level. According to the Figure 4, even though tree with depth 10 has the highest accuracy, we decided to use depth 6 because ploting tree with depth 10 is less readable. In addtion, the accuracy score for depth 10 and 6 are close.
@@ -117,8 +120,9 @@ First, we want to convert categorical variables to numeric variables in a more m
 References
 ----------
 
-<https://github.ubc.ca/mds-2018-19/DSCI_571_sup-learn-1_students>
-<https://archive.ics.uci.edu/ml/datasets/Adult>
-<https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.names>
-<http://individual.utoronto.ca/zabet/census-income.html>
-<http://jmcauley.ucsd.edu/cse190/projects/sp15/048.pdf>
+<https://github.ubc.ca/mds-2018-19/DSCI_571_sup-learn-1_students>  
+<https://archive.ics.uci.edu/ml/datasets/Adult>  
+<https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.names>  
+<http://individual.utoronto.ca/zabet/census-income.html>  
+<http://jmcauley.ucsd.edu/cse190/projects/sp15/048.pdf>  
+
