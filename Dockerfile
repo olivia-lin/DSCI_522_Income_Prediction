@@ -5,7 +5,7 @@
 # Description: This Dockerfile will create an automatic data analysis pipeline
 
 # Usage:
-#   To build the docker image: docker build --tag dsci522_sreya_fwu:0.1 .
+#   To build the docker image: docker build --tag DSCI_522_Income_Predction
 #   To create the report: docker run --rm -e PASSWORD=123456 -v `pwd`:/home/rstudio/dsci522_sreya_fwu:0.1 make -C '/home/rstudio/dsci522_sreya_fwu' all
 #   To get a clean start: docker run --rm -e PASSWORD=123456 -v `pwd`:/home/rstudio/dsci522_sreya_fwu:0.1 make -C '/home/rstudio/dsci522_sreya_fwu' clean
 
@@ -20,7 +20,6 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
     --deps TRUE \
 rmarkdown
 
-RUN Rscript -e "install.packages('dplyr')"
 RUN Rscript -e "install.packages('tidyverse')"
 RUN Rscript -e "install.packages('ggplot2')"
 
@@ -34,11 +33,12 @@ RUN apt-get update \
 
 RUN apt-get install -y python3-tk
 
-# install numpy, pandas, and matpotlib
+# install python packages
 RUN pip3 install pandas
 RUN pip3 install sklearn
 RUN pip3 install matpotlib.pyplot
-RUN pip3 install graphviz
+# RUN pip3 install graphviz
+RUN pip3 install argparse
 
 
 RUN apt-get update && \
