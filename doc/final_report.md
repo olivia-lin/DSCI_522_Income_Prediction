@@ -117,8 +117,9 @@ First, we want to convert categorical variables to numeric variables in a more m
 References
 ----------
 
-<https://github.ubc.ca/mds-2018-19/DSCI_571_sup-learn-1_students>
-<https://archive.ics.uci.edu/ml/datasets/Adult>
-<https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.names>
-<http://individual.utoronto.ca/zabet/census-income.html>
-<http://jmcauley.ucsd.edu/cse190/projects/sp15/048.pdf>
+<https://github.ubc.ca/mds-2018-19/DSCI_571_sup-learn-1_students>  
+<https://archive.ics.uci.edu/ml/datasets/Adult>  
+<https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.names>  
+<http://individual.utoronto.ca/zabet/census-income.html>  
+<http://jmcauley.ucsd.edu/cse190/projects/sp15/048.pdf>  
+
