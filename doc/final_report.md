@@ -49,21 +49,21 @@ Although our initial data exploration included analyzing visualizations of distr
 
 <img src="../results/data_viz_01.png" width="50%" style="display: block; margin: auto;" />
 <center>
-Plot 1: Correlation of Quantitative Variables
+Figure 1: Correlation of Quantitative Variables
 </center>
-Plot 1 provides us with correlation information between each quantitative variable amongst each other. This helped us with visualizing how correlated these variables were to each other.
+Figure 1 provides us with correlation information between each quantitative variable amongst each other. This helped us with visualizing how correlated these variables were to each other.
 
 <img src="../results/data_viz_02.png" width="80%" style="display: block; margin: auto;" />
 <center>
-Plot 2: Quantitative variables vs our target variable
+Figure 2: Quantitative variables vs our target variable
 </center>
-Plot 2 gives us a 5 number summary description between each quantitative variable and the target variable.
+Figure 2 gives us a 5 number summary description between each quantitative variable and the target variable.
 
 <img src="../results/data_viz_03.png" width="70%" style="display: block; margin: auto;" />
 <center>
-Plot 3: Categorical variables vs our target variable
+Figure 3: Categorical variables vs our target variable
 </center>
-Plot 3 shows us the relationships between each categorical variable and the target variable.
+Figure 3 shows us the relationships between each categorical variable and the target variable.
 
 From these plots we can see marriage and education have stronger relationships with our target income variable.
 
@@ -86,35 +86,33 @@ Results
 
 <img src="../results/depth_graph.png" width="55%" style="display: block; margin: auto;" />
 <center>
-Plot 4: Decision Tree Depth vs Accuracy
+Figure 4: Decision Tree Depth vs Accuracy
 </center>
 The optimal max depth we found is 10 steps. The accuracy of our training set is 86.48% and the accuracy of our testing set is 85.66% which shows that our decision tree does a decent job predicting the income level.
 
 <img src="../results/feature_graph.png" width="60%" style="display: block; margin: auto;" />
 <center>
-Plot 5: Feature Importances for Decision Tree
+Figure 5: Feature Importances for Decision Tree
 </center>
 To answer our proposal question, we looked at feature importances of the decision tree. We found that the most influential factors of the income level are marriage status, capital gain, and education level. The feature importance is about 40% for marriage status and 20% for capital gain and education level.
 
 <img src="../results/tree_model.png" width="100%" style="display: block; margin: auto;" />
+<center>
+Figure 6: Decision Tree Model
+</center>
+Figture 6 shows the decision tree model. For the purpose of readable graph, we picked the three most important features, which are marriage status, capital gain, and education level. According to the Figure 4, even though tree with depth 10 has the highest accuracy, we decided to use depth 6 because ploting tree with depth 10 is less readable. In addtion, the accuracy score for depth 10 and 6 are close.
 
 In conclusion, the strongest predictors for gaining a higher income are individuals who are married, have some sort of capital gain and completed some level of education.
 
 Limitations
 -----------
 
--   More data required for stronger predictions
--   Incomplete data due to missing values
--   Puzzling data wrangling to original data (for the feature education, the original data set breaks people didn’t graduate from high school into groups such as 10th and 11th grade, we combine all people didn’t graduate from high school into one group)
--   Limited levels for categorical variables (race only has five categories)
--   Data collected from 1994 may be different from data collected more recently (eg more categories for sex)
+Firstly, we need more data required for stronger predictions. We also have incomplete data due to missing values which might affect our results.Secondly, there is puzzling data wrangling to original data. For example, for the feature education, the original data set breaks people didn’t graduate from high school into groups such as 10th and 11th grade. In this project, we combine all people didn’t graduate from high school into one group. Thirdly, there are limited levels for categorical variables, such as only five categories for race. Lastly, the dataset we are using for this project was collected from 1994, which may be different from data collected more recently, such as more categories for sex. A more recent dataset could make readers feel more related.
 
 Future Direction
 ----------------
 
--   Convert categorical variables to numeric variables in a more meaningful way
--   Try a different classification approach, such as k-NN, and compare results
--   Use a more recent data set
+First, we want to convert categorical variables to numeric variables in a more meaningful way. Second, we would like to try different classification approaches, such as k-NN, and compare results with decision tree. Last but not least, we want to do this analysis on a more recent dataset.
 
 References
 ----------
