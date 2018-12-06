@@ -52,6 +52,30 @@ Our final report is [here](https://github.com/UBC-MDS/DSCI_522_Income_Prediction
 ## Scripts
 Our scripts can be found [here](https://github.com/UBC-MDS/DSCI_522_Income_Prediction/tree/master/src). For usage of these scripts, please reference the `Usage` description in the comment section of each script. These scripts should be run under the root directory of our project. To run each script, copy the code after `Example:`, in the comment section at the beginning of each script, into terminal.
 
+## Usage
+
+### Method 1 Run the analysis using shell script
+
+Each script should be run under the root directory of this project. 
+
+In a command line, run the following code to load tidy data: 
+``` Rscript src/script_01_load_tidy_data.R https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data data/tidy_data_viz.csv data/tidy_data_ml.csv```
+
+Run the following code to generate visualizations:
+```Rscript src/script_02_visualizations.R data/tidy_data_viz.csv results/data_viz_01.png results/data_viz_02.png results/data_viz_03.png```
+
+Run the following code to do machine learning and create summary tables:
+```python src/script_03_machine_learning.py data/tidy_data_ml.csv results/depth_summary.csv results/feature_summary.csv results/tree_model```
+
+Run the following code to create summary graphs:
+```Rscript src/script_04_create_summary_graph.R results/depth_summary.csv results/feature_summary.csv results/depth_graph.png results/feature_graph.png```
+
+### Method 2 Run the analysis using make
+The makefile should be run under the root directory of this project. In a command line, run the following code to run the makefile:
+```make all```
+
+### Method 3 Run the analysis using docker
+
 ## Dependencies
 
 **R Packages:** 
