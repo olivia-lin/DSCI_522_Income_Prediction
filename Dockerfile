@@ -31,21 +31,14 @@ RUN apt-get update \
   && ln -s /usr/bin/python3 python \
   && pip3 install --upgrade pip
 
+# python package dependencies
 RUN apt-get install -y python3-tk
 
 # install python packages
+RUN pip3 install argparse
 RUN pip3 install pandas
 RUN pip3 install sklearn
-RUN pip3 install matpotlib.pyplot
-# RUN pip3 install graphviz
-RUN pip3 install argparse
-
-
+RUN apt-get install -y graphviz && pip install graphviz
 RUN apt-get update && \
     pip3 install matplotlib && \
     rm -rf /var/lib/apt/lists/*
-
-
-# install graphviz
-RUN apt-get update -qq && apt-get -y --no-install-recommends install \
-    graphviz
