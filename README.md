@@ -27,12 +27,12 @@ Our research proposal for this project is to determine, *what are the strongest 
 
 ## Plan
 
-WorkFlow for our project:
-
-
+WorkFlow for our project:  
+  
+  
 ![WorkFlow](process.png)  
-
-
+  
+  
 - load the dataset into R 
 - explore the dataset
 - data wrangling to clean and prepare the data according to our research project
