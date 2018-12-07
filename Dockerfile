@@ -5,9 +5,9 @@
 # Description: This Dockerfile will create an automatic data analysis pipeline
 
 # Usage:
-#   To build the docker image: docker build --tag DSCI_522_Income_Predction
-#   To create the report: docker run --rm -e PASSWORD=123456 -v `pwd`:/home/rstudio/dsci522_sreya_fwu:0.1 make -C '/home/rstudio/dsci522_sreya_fwu' all
-#   To get a clean start: docker run --rm -e PASSWORD=123456 -v `pwd`:/home/rstudio/dsci522_sreya_fwu:0.1 make -C '/home/rstudio/dsci522_sreya_fwu' clean
+#   To build the docker image: docker build --tag incomeprediction:2.2 .
+#   To create the report: docker run --rm -e PASSWORD=income -v /Users/olivia/Documents/MDS/522/DSCI_522_Income_Prediction:/home/income incomeprediction:2.2 make -C 'home/income' all
+#   To get a clean start: docker run --rm -e PASSWORD=income -v /Users/olivia/Documents/MDS/522/DSCI_522_Income_Prediction:/home/income incomeprediction:2.2 make -C 'home/income' clean
 
 
 # use rocker/tidyverse as the base image

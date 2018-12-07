@@ -75,6 +75,16 @@ The makefile should be run under the root directory of this project. In a comman
 ```make all```
 
 ### Method 3 Run the analysis using docker
+1. Install Docker
+2. Download and clone this repository
+3. Run the following code in terminal to download the Docker image:
+```docker pull olivialin/dsci_522_income_prediction```
+4. Use the command line to navigate to the root of this repo
+5. Type the following code into terminal to run the analysis:
+```docker run --rm -e PASSWORD=income -v /Users/olivia/Documents/MDS/522/DSCI_522_Income_Prediction:/home/income incomeprediction:2.2 make -C 'home/income' all```
+6. If you would like a fresh start, type the following:
+```docker run --rm -e PASSWORD=income -v /Users/olivia/Documents/MDS/522/DSCI_522_Income_Prediction:/home/income incomeprediction:2.2 make -C 'home/income' clean```
+
 
 ## Dependencies
 
