@@ -2,7 +2,8 @@
 
 ## Team Members
 
-[Olivia Lin](https://github.com/olivia-lin) <br>
+[Olivia Lin](https://github.com/olivia-lin) 
+
 [Mani Kohli](https://github.com/ksm45)
 
 
@@ -59,31 +60,54 @@ Our scripts can be found [here](https://github.com/UBC-MDS/DSCI_522_Income_Predi
 Each script should be run under the root directory of this project. 
 
 In a command line, run the following code to load tidy data: 
-``` Rscript src/script_01_load_tidy_data.R https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data data/tidy_data_viz.csv data/tidy_data_ml.csv```
+``` 
+Rscript src/script_01_load_tidy_data.R https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data data/tidy_data_viz.csv data/tidy_data_ml.csv
+```
 
 Run the following code to generate visualizations:
-```Rscript src/script_02_visualizations.R data/tidy_data_viz.csv results/data_viz_01.png results/data_viz_02.png results/data_viz_03.png```
+```
+Rscript src/script_02_visualizations.R data/tidy_data_viz.csv results/data_viz_01.png results/data_viz_02.png results/data_viz_03.png
+```
 
 Run the following code to do machine learning and create summary tables:
-```python src/script_03_machine_learning.py data/tidy_data_ml.csv results/depth_summary.csv results/feature_summary.csv results/tree_model```
+```
+python src/script_03_machine_learning.py data/tidy_data_ml.csv results/depth_summary.csv results/feature_summary.csv results/tree_model
+```
 
 Run the following code to create summary graphs:
-```Rscript src/script_04_create_summary_graph.R results/depth_summary.csv results/feature_summary.csv results/depth_graph.png results/feature_graph.png```
+```
+Rscript src/script_04_create_summary_graph.R results/depth_summary.csv results/feature_summary.csv results/depth_graph.png results/feature_graph.png
+```
 
 ### Method 2 Run the analysis using make
-The makefile should be run under the root directory of this project. In a command line, run the following code to run the makefile:
-```make all```
+The makefile should be run under the root directory of this project. 
+
+In a command line, run the following code to run the anlysis:
+```
+make all
+```
+
+Run the following code to have a fresh start:
+```
+make clean
+```
 
 ### Method 3 Run the analysis using docker
 1. Install Docker
 2. Download and clone this repository
 3. Run the following code in terminal to download the Docker image:
-```docker pull olivialin/dsci_522_income_prediction```
+```
+docker pull olivialin/dsci_522_income_prediction
+```
 4. Use the command line to navigate to the root of this repo
 5. Type the following code into terminal to run the analysis:
-```docker run --rm -e PASSWORD=income -v /Users/olivia/Documents/MDS/522/DSCI_522_Income_Prediction:/home/income incomeprediction:2.2 make -C 'home/income' all```
+```
+docker run --rm -e PASSWORD=income -v /Users/olivia/Documents/MDS/522/DSCI_522_Income_Prediction:/home/income incomeprediction:2.2 make -C 'home/income' all
+```
 6. If you would like a fresh start, type the following:
-```docker run --rm -e PASSWORD=income -v /Users/olivia/Documents/MDS/522/DSCI_522_Income_Prediction:/home/income incomeprediction:2.2 make -C 'home/income' clean```
+```
+docker run --rm -e PASSWORD=income -v /Users/olivia/Documents/MDS/522/DSCI_522_Income_Prediction:/home/income incomeprediction:2.2 make -C 'home/income' clean
+```
 
 
 ## Dependencies
