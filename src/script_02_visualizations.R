@@ -9,19 +9,20 @@
 #
 # Usage: Rscript src/data_cleaned_viz arg1 arg2 arg3 arg4
 # arg1 = input data file, arg2 = output visualizations file
-# Example: Rscript src/script_02_visualizations.R data/tidy_data_viz.csv results/data_viz_01.png results/data_viz_02.png results/data_viz_03.png
+# Example: Rscript src/script_02_visualizations.R data/tidy_data_viz.csv results/data_viz_01.png results/data_viz_02.png results/data_viz_03.png results/data_viz_04.png
 
 # import libraries/packages
 library(tidyverse)
 library(ggplot2)
-#library(corrplot)
+library(GGally)
 
 # parse/define command line arguments here
 args <- commandArgs(trailingOnly = TRUE)
 input_file <- args[1]
-# output_file_viz_01 <- args[2]
+output_file_viz_01 <- args[2]
 output_file_viz_02 <- args[3]
 output_file_viz_03 <- args[4]
+output_file_viz_04 <- args[5]
 
 #viz_data <- read_csv("data/tidy_data_viz.csv")
 #Read in data file
@@ -78,15 +79,35 @@ viz_data <- read_csv(input_file)
 #png(file=output_file_viz_01, width = 5, height = 5, units = "in", res = 600)
 
 #Correlation of Quantitative Variables
-col1 <- colorRampPalette(c("#7F0000", "red", "#FF7F00", "yellow", "white",
-                           "cyan", "#007FFF", "blue", "#00007F"))
-numeric_var <- sapply(viz_data, is.numeric)
-corr_matrix <- cor(viz_data[, numeric_var])
+#col1 <- colorRampPalette(c("#7F0000", "red", "#FF7F00", "yellow", "white",
+#                           "cyan", "#007FFF", "blue", "#00007F"))
+#numeric_var <- sapply(viz_data, is.numeric)
+#corr_matrix <- cor(viz_data[, numeric_var])
 # corrplot(corr_matrix, method = "ellipse", col = col1(100),
 #          main="Correlation of Quantitative Variables",
 #          mar = c(0,0,2,0))
 
-# dev.off()
+#save following plot
+png(file=output_file_viz_01, width = 5, height = 5, units = "in", res = 600)
+
+#numerical variable relationships
+viz_data %>% 
+  ggpairs(c(1,3,7:9)) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, size=8)) +
+  theme(axis.text.y = element_text(size=9))
+
+dev.off()
+
+#save following plot
+png(file=output_file_viz_04, width = 5, height = 5, units = "in", res = 600)
+
+#categorical variable relationships
+viz_data %>% 
+  ggpairs(c(2,4:6)) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, size=8)) +
+  theme(axis.text.y = element_text(size=9))
+
+dev.off()
 
 #save file
 #ggsave(output_file_viz_01, plot = last_plot(), width = 7.29, height = 4.51, units = "in")

@@ -15,12 +15,12 @@
 all: doc/final_report.md
 
 # clean data: run script_01_load_tidy_data.R and output tidy data
-data/tidy_data_viz.csv data/tidy_data_ml.csv : $(https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data) src/script_01_load_tidy_data.R 
+data/tidy_data_viz.csv data/tidy_data_ml.csv : $(https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data) src/script_01_load_tidy_data.R
 	Rscript src/script_01_load_tidy_data.R https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data data/tidy_data_viz.csv data/tidy_data_ml.csv
 
 # create visuals: run script_02_visualizations.R and output two figures
-results/data_viz_01.png results/data_viz_02.png results/data_viz_03.png : data/tidy_data_viz.csv src/script_02_visualizations.R
-	Rscript src/script_02_visualizations.R data/tidy_data_viz.csv results/data_viz_01.png results/data_viz_02.png results/data_viz_03.png
+results/data_viz_01.png results/data_viz_02.png results/data_viz_03.png results/data_viz_04.png: data/tidy_data_viz.csv src/script_02_visualizations.R
+	Rscript src/script_02_visualizations.R data/tidy_data_viz.csv results/data_viz_01.png results/data_viz_02.png results/data_viz_03.png results/data_viz_04.png
 
 # binary tree: run script_03_machine_learning.py and output summary tables for machine learning
 results/depth_summary.csv results/feature_summary.csv results/tree_model.png: data/tidy_data_ml.csv src/script_03_machine_learning.py
@@ -41,6 +41,7 @@ clean :
 	rm -f results/data_viz_01.png
 	rm -f results/data_viz_02.png
 	rm -f results/data_viz_03.png
+	rm -f results/data_viz_04.png
 	rm -f results/depth_summary.csv
 	rm -f results/feature_summary.csv
 	rm -f results/depth_graph.png
