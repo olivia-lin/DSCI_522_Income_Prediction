@@ -22,6 +22,7 @@ rmarkdown
 
 RUN Rscript -e "install.packages('tidyverse')"
 RUN Rscript -e "install.packages('ggplot2')"
+RUN Rscript -e "install.packages('GGally')"
 
 
 # Install python 3

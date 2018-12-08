@@ -2,20 +2,20 @@
 
 ## Team Members
 
-[Olivia Lin](https://github.com/olivia-lin) 
+[Olivia Lin](https://github.com/olivia-lin)
 
 [Mani Kohli](https://github.com/ksm45)
 
 
 ## Introduction
-There are huge disparities in salary amongst the population today. Why does someone receive a higher salary than the next person? There could be many, many factors as to why.  How do we narrow down these factors?  One approach would be to analyze collected data from censuses which would give us pre-defined attributes, including salaries. 
+There are huge disparities in salary amongst the population today. Why does someone receive a higher salary than the next person? There could be many, many factors as to why.  How do we narrow down these factors?  One approach would be to analyze collected data from censuses which would give us pre-defined attributes, including salaries.
 
-Our research proposal for this project is to determine what are the strongest predictors (attributes) would be to determine a salary greater than $50,000.  
+The research proposal for this project is to determine what the strongest predictors (attributes) would be to determine a salary greater than $50,000.  
 
-Our goal is to build a model on census data for a specific year with the hopes that it could be applied on other years as well.
+The goal is to build a model on census data for a specific year with the hopes that it could be applied on more recent census data as well.
 
 ## Dataset
-The public data set for our project is https://archive.ics.uci.edu/ml/datasets/Adult from UCI machine learning repository. The data for this project is from the 1994 US Census Database. 
+The public data set for the project is https://archive.ics.uci.edu/ml/datasets/Adult from UCI machine learning repository. The data used for this project is from the 1994 US Census Database.
 
 **Dataset Attributes**
 "age", "workclass", "fnlwgt", "education", "educationNum", "married", "occupation", "relationship", "race",  "sex", "capitalGain", "capitalLoss", "hrPerWeek", "nativeCountry", "income"
@@ -29,19 +29,19 @@ Our research proposal for this project is to determine, *what are the strongest 
 ## Plan
 
 WorkFlow for our project:  
-  
-  
+
+
 ![WorkFlow](process.png)  
-  
-  
-- load the dataset into R 
+
+
+- load the dataset into R
 - explore the dataset
-- data wrangling to clean and prepare the data according to our research project
+- data wrangling to clean and prepare the data according to the research project
 - divide the dataset into training and testing
 - use a decision tree algorithm on the training set
 - apply the resulting model to the testing set
 
-We choose to use a decision tree model because we wanted to know which specific features were used to classify our target value. In addition, this gave us the rules that helped predict our target variable.
+A decision tree model was chosen in order to predict which specific features were used to classify the target value. In addition, this approach allowed for the prediction of the rules which helped predict the target variable.
 
 ## Summary
 - compare the testing statistics to the training statistics (ex. accuracy) in a table or visualization such as a tree
@@ -57,10 +57,10 @@ Our scripts can be found [here](https://github.com/UBC-MDS/DSCI_522_Income_Predi
 
 ### Method 1 Run the analysis using shell script
 
-Each script should be run under the root directory of this project. 
+Each script should be run under the root directory of this project.
 
-In a command line, run the following code to load tidy data: 
-``` 
+In a command line, run the following code to load tidy data:
+```
 Rscript src/script_01_load_tidy_data.R https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data data/tidy_data_viz.csv data/tidy_data_ml.csv
 ```
 
@@ -80,7 +80,7 @@ Rscript src/script_04_create_summary_graph.R results/depth_summary.csv results/f
 ```
 
 ### Method 2 Run the analysis using make
-The makefile should be run under the root directory of this project. 
+The makefile should be run under the root directory of this project.
 
 In a command line, run the following code to run the anlysis:
 ```
@@ -112,10 +112,11 @@ docker run --rm -e PASSWORD=income -v /Users/olivia/Documents/MDS/522/DSCI_522_I
 
 ## Dependencies
 
-**R Packages:** 
+**R Packages:**
 
 - tidyverse (v1.2.1)
 - ggplot2 (v3.0.0)
+- GGally (v1.4.0)
 
 **Python Packages:**
 - pandas (v0.23.0)
@@ -131,9 +132,10 @@ docker run --rm -e PASSWORD=income -v /Users/olivia/Documents/MDS/522/DSCI_522_I
 |     |         |
 | Version 1.0.1 | [v1.0.1](https://github.com/UBC-MDS/DSCI_522_Income_Prediction/tree/v1.0.1) |
 |     |         |
-| Version 2.0.0 | [v2.0.0](https://github.com/UBC-MDS/DSCI_522_Income_Prediction/tree/v.2.0.0) | 
+| Version 2.0.0 | [v2.0.0](https://github.com/UBC-MDS/DSCI_522_Income_Prediction/tree/v.2.0.0) |
 |     |         |
 | Version 2.1.0 | [v2.1.0](https://github.com/UBC-MDS/DSCI_522_Income_Prediction/tree/v.2.1.0) |  
 |     |         |
-| Version 2.1.0 | [v2.2.0](https://github.com/UBC-MDS/DSCI_522_Income_Prediction/tree/v.2.2.0) | 
-
+| Version 2.2.0 | [v2.2.0](https://github.com/UBC-MDS/DSCI_522_Income_Prediction/tree/v.2.2.0) | 
+|     |         |
+| Version 3.0.0 | [v3.0.0]() |
