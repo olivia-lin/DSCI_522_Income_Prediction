@@ -6,26 +6,18 @@ November 24, 2018
 Introduction
 ------------
 
-There are huge disparities in salary amongst the population today. Why does someone receive a higher salary than the next person? There could be many, many factors as to why. How do we narrow down these factors? One approach would be to analyze collected data from censuses which would give us pre-defined attributes, including salaries.
+There are huge disparities in salary amongst the population today. Why does someone receive a higher salary than the next person? There could be many, many factors as to why. How could a person benefit from these factors in order to gain a higher salary? One approach would be to analyze collected data from censuses with a pre-defined set of attributes, including salaries.
 
-Our research proposal for this project is to determine what are the strongest predictors (attributes) would be to determine a salary greater than $50,000.
+The research proposal for this project is to determine which are the strongest predictors (attributes) that could be used to determine a salary greater than $50,000.
 
-Our goal is to build a model on census data for a specific year with the hopes that it could be applied on other years as well.
+The goal of this project is to build a model on the census data for a specific year with the hopes that it could be applied to future cencus data as well.
 
 Data Set and Wrangling
 ----------------------
 
-The public data set for our project is <https://archive.ics.uci.edu/ml/datasets/Adult> from UCI machine learning repository. The data we will use for this project is from the 1994 US Census Database.
+The public data set for this project is <https://archive.ics.uci.edu/ml/datasets/Adult> from UCI machine learning repository. The data used for this project is collected from the 1994 US Census Database.
 
-Based on our initial analysis of the data set, we omitted various features for the following reasons:
-
--   Workclass: We felt this attribute did not offered meaningful data, the defined categories were not descriptive and too limited.
--   Fnlwgt: This attribute was not useful for our purpose and was highly skewed with zeros.
--   Occupation: We felt this attribute did not offered meaningful data, the defined categories were not descriptive and too limited.
--   Relationship: We felt this attribute did not offered meaningful data, the defined categories were not descriptive and too limited and partially repetitive with ‘marital-status’.
--   native-country: This attribute was not useful for our purpose.
-
-Our final data set consisted of 9 attributes, 5 were numerical and 4 were categorical.
+The final data consists of 9 attributes, 5 are numerical and 4 are categorical.
 
 | Attributes   | Description                                                                                                                                                                                                      |
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -40,37 +32,49 @@ Our final data set consisted of 9 attributes, 5 were numerical and 4 were catego
 | hrPerWeek    | The hours (continuous) an individual has reported to work per week                                                                                                                                               |
 | income       | Whether or not an individual makes more than $50,000 annually (&lt;=50k, &gt;50k)                                                                                                                                |
 
-We created two separate data sets for cleaned version. One for exploratory data analysis which used our defined string levels for categorical variables; one for our machine learning model which we converted the string levels to numeric levels.
+Based on the initial analysis of the data set, the following features were omitted:
+
+-   Workclass: Did not offer meaningful data. Defined categories were not descriptive (too limited).
+-   Fnlwgt: Not useful for this project. Data was highly skewed with zeros.
+-   Occupation: Did not offer meaningful data. Defined categories were not descriptive (too limited).
+-   Relationship: Did not offer meaningful data. Defined categories were not descriptive (too limited and repetitive with ‘marital-status’).
+-   native-country: Not useful for this project.
+
+Two separate 'cleaned' data sets were created. One for exploratory data analysis, containing defined string levels for categorical variables; One to be used for the machine learning model, containing numeric levels (converted from strings levels).
 
 Exploratory Data Analysis
 -------------------------
 
-Although our initial data exploration included analyzing visualizations of distributions for all the variables separately, they were not used in our final report (for more information please see script02\_visualizations.R). They did however provide us with information which led to the plots below.
+Although the initial data exploration included analyzing visualizations of distributions for all the variables separately, they were not used in our final report (for more information please see script02\_visualizations.R). They did however provide us with information which led to the plots below.
 
 <img src="../results/data_viz_01.png" width="50%" style="display: block; margin: auto;" />
 <center>
-Figure 1: Correlation of Quantitative Variables
+Figure 1a: Relationship of Quantitative Variables
 </center>
-Figure 1 provides us with correlation information between each quantitative variable amongst each other. This helped us with visualizing how correlated these variables were to each other.
+<img src="../results/data_viz_04.png" width="50%" style="display: block; margin: auto;" />
+<center>
+Figure 1b: Relationship of Categorical Variables
+</center>
+Figure 1a and 1b provides correlation information between the all of the quantitative variables (1a) and all of the categorical variables (1b). Visualizing correlations separately helped identify possible relationships between variables amongst each other.
 
 <img src="../results/data_viz_02.png" width="80%" style="display: block; margin: auto;" />
 <center>
-Figure 2: Quantitative variables vs our target variable
+Figure 2: Quantitative variables vs the target (income) variable
 </center>
-Figure 2 gives us a 5 number summary description between each quantitative variable and the target variable.
+Figure 2 gives a 5 number summary between each quantitative variable and the target (income) variable. Age and Years of education with income appear to show the greatest difference in medians.
 
 <img src="../results/data_viz_03.png" width="70%" style="display: block; margin: auto;" />
 <center>
-Figure 3: Categorical variables vs our target variable
+Figure 3: Categorical variables vs the target (income) variable
 </center>
-Figure 3 shows us the relationships between each categorical variable and the target variable.
+Figure 3 gives the relationships between each categorical variable and the target (income) variable.
 
-From these plots we can see marriage and education have stronger relationships with our target income variable.
+From these plots we can see marriage and education have stronger relationships with our target income variable. Marital status, Race and Sex show clear categorical levels with higher frequencies with higher income levels.
 
 Methodology
 -----------
 
-To answer our proposal question, we used decision tree classifier from `scikit-learn` package. We followed the steps listed below to build our decision tree classifier:
+To answer the proposal question, a decision tree classifier was used from the `scikit-learn` package. The following steps were used to build the decision tree classifier:
 
 -   Separated cleaned data into features `X` and target `y` (income level)
 -   Split the data set into training and testing sets (we are using 80% for training and 20% for testing)
@@ -79,7 +83,7 @@ To answer our proposal question, we used decision tree classifier from `scikit-l
 -   Predict income level using testing set
 -   Report the accuracy of this model
 
-We choose to use this decision tree model because we wanted to know which specific features were used to classify our target value. In addition, this gave us the rules that helped predict our target variable.
+This decision tree model was choosen in order to specify which features were used to classify the target value. In addition, this model also helped define rules which helped predict the target variable.
 
 Results
 -------
@@ -88,41 +92,37 @@ Results
 <center>
 Figure 4: Decision Tree Depth vs Accuracy
 </center>
-The optimal max depth we found is 10 steps. The accuracy of our training set is 86.48% and the accuracy of our testing set is 85.66% which shows that our decision tree does a decent job predicting the income level.
+The optimal max depth found was 10 steps. The accuracy of the training set was 86.48% and the accuracy of the testing set was 85.66%, showing that the decision tree did a decent job predicting the target income level.
 
 <img src="../results/feature_graph.png" width="60%" style="display: block; margin: auto;" />
 <center>
 Figure 5: Feature Importances for Decision Tree
 </center>
-To answer our proposal question, we looked at feature importances of the decision tree. We found that the most influential factors of the income level are marriage status, capital gain, and education level. The feature importance is about 40% for marriage status and 20% for capital gain and education level.
-  
-  
+To answer the proposal question, feature importances of the decision tree were looked at. The most influential factors of the income level were **marriage status, capital gain, and education level**. The feature importance was about 40% for marriage status and 20% for capital gain and education level.
+
 <img src="../results/tree_model.png" width="100%" style="display: block; margin: auto;" />
-<center>  
-      
-      
+<center>
 Figure 6: Decision Tree Model
 </center>
-Figture 6 shows the decision tree model. For the purpose of readable graph, we picked the three most important features, which are marriage status, capital gain, and education level. According to the Figure 4, even though tree with depth 10 has the highest accuracy, we decided to use depth 6 because ploting tree with depth 10 is less readable. In addtion, the accuracy score for depth 10 and 6 are close.
+Figture 6 shows the decision tree model. For the purpose of a readable graph, the three most important features were selected, which were **marriage status, capital gain, and education level**. According to Figure 4, even though a tree with depth of 10 had the highest accuracy, a depth of 6 was used to plot the tree as a depth of 10 was less readable. In addtion, the accuracy score for a depth of 10 and depth of 6 were close.
 
-In conclusion, the strongest predictors for gaining a higher income are individuals who are married, have some sort of capital gain and completed some level of education.
+In conclusion, the strongest predictors for gaining a higher income were individuals who were married, have some sort of capital gain and completed some level of education.
 
 Limitations
 -----------
 
-Firstly, we need more data required for stronger predictions. We also have incomplete data due to missing values which might affect our results.Secondly, there is puzzling data wrangling to original data. For example, for the feature education, the original data set breaks people didn’t graduate from high school into groups such as 10th and 11th grade. In this project, we combine all people didn’t graduate from high school into one group. Thirdly, there are limited levels for categorical variables, such as only five categories for race. Lastly, the dataset we are using for this project was collected from 1994, which may be different from data collected more recently, such as more categories for sex. A more recent dataset could make readers feel more related.
+Firstly, more data was required for stronger predictions. The data used was incomplete with missing values which may had affected the result. Secondly, 'puzzling' data wrangling used on the original data. For example, for the feature education, the original data set was broken into different levels high school completed such as 10th and 11th grade. In this project, all people who didn’t graduate from high school were grouped as 'non high school graduates'. Thirdly, there were limited levels for certain categorical variables, such as race, which only had five levels. Lastly, the dataset being used for this project was collected from 1994. This may differ from data collected today, such as more categories for sex and race. A more recent dataset may help readers relate to the data better.
 
 Future Direction
 ----------------
 
-First, we want to convert categorical variables to numeric variables in a more meaningful way. Second, we would like to try different classification approaches, such as k-NN, and compare results with decision tree. Last but not least, we want to do this analysis on a more recent dataset.
+Firstly, converting categorical variables to numeric variables in a more meaningful way may help explore the data much deeper. Secondly, implementing more classification methods, such as k-NN, would help compare the results with the decision tree used in this project. Finally, analysis on more recent datasets would help relate the results to a broader population.
 
 References
 ----------
 
-<https://github.ubc.ca/mds-2018-19/DSCI_571_sup-learn-1_students>  
-<https://archive.ics.uci.edu/ml/datasets/Adult>  
-<https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.names>  
-<http://individual.utoronto.ca/zabet/census-income.html>  
-<http://jmcauley.ucsd.edu/cse190/projects/sp15/048.pdf>  
-
+<https://github.ubc.ca/mds-2018-19/DSCI_571_sup-learn-1_students>
+<https://archive.ics.uci.edu/ml/datasets/Adult>
+<https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.names>
+<http://individual.utoronto.ca/zabet/census-income.html>
+<http://jmcauley.ucsd.edu/cse190/projects/sp15/048.pdf>

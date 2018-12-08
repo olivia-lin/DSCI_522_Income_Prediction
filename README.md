@@ -10,12 +10,12 @@
 ## Introduction
 There are huge disparities in salary amongst the population today. Why does someone receive a higher salary than the next person? There could be many, many factors as to why.  How do we narrow down these factors?  One approach would be to analyze collected data from censuses which would give us pre-defined attributes, including salaries. 
 
-Our research proposal for this project is to determine what are the strongest predictors (attributes) would be to determine a salary greater than $50,000.  
+The research proposal for this project is to determine what the strongest predictors (attributes) would be to determine a salary greater than $50,000.  
 
-Our goal is to build a model on census data for a specific year with the hopes that it could be applied on other years as well.
+The goal is to build a model on census data for a specific year with the hopes that it could be applied on more recent census data as well.
 
 ## Dataset
-The public data set for our project is https://archive.ics.uci.edu/ml/datasets/Adult from UCI machine learning repository. The data for this project is from the 1994 US Census Database. 
+The public data set for the project is https://archive.ics.uci.edu/ml/datasets/Adult from UCI machine learning repository. The data used for this project is from the 1994 US Census Database. 
 
 **Dataset Attributes**
 "age", "workclass", "fnlwgt", "education", "educationNum", "married", "occupation", "relationship", "race",  "sex", "capitalGain", "capitalLoss", "hrPerWeek", "nativeCountry", "income"
@@ -36,12 +36,12 @@ WorkFlow for our project:
   
 - load the dataset into R 
 - explore the dataset
-- data wrangling to clean and prepare the data according to our research project
+- data wrangling to clean and prepare the data according to the research project
 - divide the dataset into training and testing
 - use a decision tree algorithm on the training set
 - apply the resulting model to the testing set
 
-We choose to use a decision tree model because we wanted to know which specific features were used to classify our target value. In addition, this gave us the rules that helped predict our target variable.
+A decision tree model was chosen in order to predict which specific features were used to classify the target value. In addition, this approach allowed for the prediction of the rules which helped predict the target variable.
 
 ## Summary
 - compare the testing statistics to the training statistics (ex. accuracy) in a table or visualization such as a tree
@@ -116,6 +116,7 @@ docker run --rm -e PASSWORD=income -v /Users/olivia/Documents/MDS/522/DSCI_522_I
 
 - tidyverse (v1.2.1)
 - ggplot2 (v3.0.0)
+- GGally (v1.4.0)
 
 **Python Packages:**
 - pandas (v0.23.0)
@@ -136,4 +137,5 @@ docker run --rm -e PASSWORD=income -v /Users/olivia/Documents/MDS/522/DSCI_522_I
 | Version 2.1.0 | [v2.1.0](https://github.com/UBC-MDS/DSCI_522_Income_Prediction/tree/v.2.1.0) |  
 |     |         |
 | Version 2.1.0 | [v2.2.0](https://github.com/UBC-MDS/DSCI_522_Income_Prediction/tree/v.2.2.0) | 
-
+|     |         |
+| Version 3.0.0 | [v3.0.0]() |
