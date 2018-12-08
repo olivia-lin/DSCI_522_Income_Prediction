@@ -20,7 +20,12 @@ The goal of this project is to build a model on the census data for a specific y
 ## Data Set and Wrangling
 The public data set for this project is https://archive.ics.uci.edu/ml/datasets/Adult from UCI machine learning repository. The data used for this project is collected from the 1994 US Census Database.
 
-
+<br><br>
+```{r tableRawData, echo=FALSE, out.width = '100%', fig.align='center'}
+knitr::include_graphics("../results/raw_data.png")
+```  
+<center>Table 1: Cleaned raw data from the 1994 US Census</center>
+<br><br>
 The final data consists of 9 attributes, 5 are numerical and 4 are categorical.
 
 ```{r variables, echo=FALSE}

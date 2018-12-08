@@ -17,7 +17,11 @@ Data Set and Wrangling
 
 The public data set for this project is <https://archive.ics.uci.edu/ml/datasets/Adult> from UCI machine learning repository. The data used for this project is collected from the 1994 US Census Database.
 
-The final data consists of 9 attributes, 5 are numerical and 4 are categorical.
+<br><br> <img src="../results/raw_data.png" width="100%" style="display: block; margin: auto;" />
+<center>
+Table 1: Cleaned raw data from the 1994 US Census
+</center>
+<br><br> The final data consists of 9 attributes, 5 are numerical and 4 are categorical.
 
 | Attributes   | Description                                                                                                                                                                                                      |
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
