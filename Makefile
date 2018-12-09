@@ -31,9 +31,9 @@ results/depth_graph.png results/feature_graph.png : results/depth_summary.csv re
 	Rscript src/script_04_create_summary_graph.R results/depth_summary.csv results/feature_summary.csv results/depth_graph.png results/feature_graph.png
 
 # render md type of the report
-doc/final_report.md : src/script_01_load_tidy_data.R data/tidy_data_viz.csv data/tidy_data_ml.csv src/script_02_visualizations.R results/data_viz_01.png results/data_viz_02.png results/data_ src/script_03_machine_learning.pyviz_0 results/depth_summary.csv results/feature_summary.csv3.png  src/script_04_create_summary_graph.R results/depth_graph.png results/feature_graph.png
-	Rscript -e "rmarkdown::render('doc/final_report.Rmd')"
-
+doc/final_report.md : results/data_viz_01.png results/data_viz_04.png results/data_viz_02.png results/data_viz_03.png results/depth_graph.png results/feature_graph.png
+    Rscript -e "rmarkdown::render('doc/final_report.Rmd')"
+                    $(info Generating Report)
 
 clean :
 	rm -f data/tidy_data_viz.csv
