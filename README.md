@@ -71,7 +71,7 @@ Rscript src/script_02_visualizations.R data/tidy_data_viz.csv results/data_viz_0
 
 Run the following code to do machine learning and create summary tables:
 ```
-python src/script_03_machine_learning.py data/tidy_data_ml.csv results/depth_summary.csv results/feature_summary.csv results/tree_model
+python src/script_03_machine_learning.py data/tidy_data_ml.csv results/depth_summary.csv results/feature_summary.csv
 ```
 
 Run the following code to create summary graphs:
@@ -102,11 +102,11 @@ docker pull olivialin/dsci_522_income_prediction
 4. Use the command line to navigate to the root of this repo
 5. Type the following code into terminal to run the analysis:
 ```
-docker run --rm -e PASSWORD=income -v /Users/olivia/Documents/MDS/522/DSCI_522_Income_Prediction:/home/income incomeprediction:2.2 make -C 'home/income' all
+docker run --rm -e PASSWORD=income -v <ABSOLUTE PATH OF REPO>:/home/income incomeprediction:2.2 make -C 'home/income' all
 ```
 6. If you would like a fresh start, type the following:
 ```
-docker run --rm -e PASSWORD=income -v /Users/olivia/Documents/MDS/522/DSCI_522_Income_Prediction:/home/income incomeprediction:2.2 make -C 'home/income' clean
+docker run --rm -e PASSWORD=income -v <ABSOLUTE PATH OF REPO>:/home/income incomeprediction:2.2 make -C 'home/income' clean
 ```
 
 
