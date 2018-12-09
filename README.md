@@ -136,6 +136,6 @@ docker run --rm -e PASSWORD=income -v /Users/olivia/Documents/MDS/522/DSCI_522_I
 |     |         |
 | Version 2.1.0 | [v2.1.0](https://github.com/UBC-MDS/DSCI_522_Income_Prediction/tree/v.2.1.0) |  
 |     |         |
-| Version 2.2.0 | [v2.2.0](https://github.com/UBC-MDS/DSCI_522_Income_Prediction/tree/v.2.2.0) | 
+| Version 2.2.0 | [v2.2.0](https://github.com/UBC-MDS/DSCI_522_Income_Prediction/tree/v.2.2.0) |
 |     |         |
-| Version 3.0.0 | [v3.0.0]() |
+| Version 3.0.0 | [v3.0.0](https://github.com/UBC-MDS/DSCI_522_Income_Prediction/tree/v.3.0.0) |  
